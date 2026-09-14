@@ -38,7 +38,8 @@
 <button class="tab" data-target="sec7"><span>📧</span><span>Enviando para abertura de chamado N2</span></button>
 <button class="tab" data-target="sec8"><span>📞</span><span>Ativação de receptor</span></button>
 <button class="tab" data-target="sec9"><span>📺</span><span>Reforço de sinal</span></button>
-<button class="tab" data-target="sec10"><span>📶</span><span>Como realizar recarga no CHAT</span></button></nav>
+<button class="tab" data-target="sec10"><span>📶</span><span>Como realizar recarga no CHAT</span></button>
+<button class="tab" data-target="sec11"><span>💡</span><span>Sugestões</span></button></nav>
     </aside>
 
     <main class="main">
@@ -46,7 +47,7 @@
         <select id="selectTab" aria-label="Selecionar seção"></select>
       </div>
       <div class="quick">
-        <div><strong>12</strong><span>seções</span></div>
+        <div><strong>13</strong><span>seções</span></div>
         <div><strong>43W</strong><span>Nova Parabólica</span></div>
         <div><strong>9</strong><span>modelos listados</span></div>
       </div>
@@ -109,8 +110,8 @@
 <div class='step'>🔹 Solte o botão CH-.</div>
 <div class='step'>🔹 Quando aparecer a tela</div>
 <p>de informações.</p>
-<div class='step'>🔹  preencha com os dados abaixo, corretamente.</div>
-<div class='step'>👉  Configuração B1 - SKY</div>
+<div class='step'>🔹  preencha com os dados abaixo, corretamente.</div>
+<div class='step'>👉  Configuração B1 - SKY</div>
 <div class='step'>✅ Frequência Intermediária: 1760</div>
 <div class='step'>✅ Polarização: Horizontal</div>
 <div class='step'>✅ Taxa de Símbolo: 30000</div>
@@ -196,7 +197,7 @@
 <p>- Recarga      a ser colocada: (deve possuir uma grade de canais o mais próxima possível      da originalmente contratada, com valor equivalente ou inferior ao da      recarga pré-pago)</p>
 <p>- Comprovante      de pagamento:</p>
 <p>- CRM      do antenista e número de celular</p>
-<p>Solicitamos, por gentileza, que a recarga aplicada seja</p>
+<p>Solicitamos, por gentileza, que a recarga applied seja</p>
 <p>substituída pela recarga informada de Nova Parabólica.</p>
 <p>Ficamos no aguardo do retorno.</p>
 <p>Atenciosamente,</p>
@@ -277,6 +278,24 @@
 <p><strong>3.</strong> O arquivo deve ser copiado para o pen drive com o mesmo nome exato do arquivo baixado no site ( não pode conter numerações entre parenteses )</p>
 <p><strong>4.</strong> Se o arquivo estiver em uma pasta zipada, ele deve ser extraído.</p>
 <p><strong>LINK do software -</strong> <a href="https://www.bedinsat.com.br/uploads/production_stage_4_allcode.abs" target="_blank" rel="noopener noreferrer">https://www.bedinsat.com.br/uploads/production_stage_4_allcode.abs</a></p></div></section>
+<section class="panel" id="sec11"><div class="panel-head"><div class="panel-icon">💡</div><div><h2>Sugestões</h2><p>Envie sua sugestão ou feedback sobre o guia</p></div></div><div class="panel-body"><form id="formSugestao" onsubmit="enviarSugestao(event)" style="display: flex; flex-direction: column; gap: 15px; max-width: 500px;">
+<div><label for="nome" style="display: block; margin-bottom: 5px; font-weight: bold;">Seu Nome:</label><input type="text" id="nome" required placeholder="Digite seu nome" style="width: 100%; padding: 8px; box-sizing: border-box;"></div>
+<div><label for="nota" style="display: block; margin-bottom: 5px; font-weight: bold;">Nota (1 a 5):</label><select id="nota" required style="width: 100%; padding: 8px; box-sizing: border-box;"><option value="" disabled selected>Selecione uma nota</option><option value="1">1 - Muito Ruim</option><option value="2">2 - Ruim</option><option value="3">3 - Regular</option><option value="4">4 - Bom</option><option value="5">5 - Excelente</option></select></div>
+<div><label for="sugestao" style="display: block; margin-bottom: 5px; font-weight: bold;">Sua Sugestão:</label><textarea id="sugestao" rows="5" required placeholder="Escreva sua sugestão aqui..." style="width: 100%; padding: 8px; box-sizing: border-box;"></textarea></div>
+<button type="submit" style="background-color: #ff6a00; color: white; border: none; padding: 10px 20px; font-weight: bold; cursor: pointer; border-radius: 4px;">Enviar Sugestão</button>
+</form>
+<script>
+function enviarSugestao(e) {
+  e.preventDefault();
+  var nome = document.getElementById('nome').value;
+  var nota = document.getElementById('nota').value;
+  var sugestao = document.getElementById('sugestao').value;
+  var email = 'caue.machado@terceiro-sky.com.br';
+  var assunto = encodeURIComponent('Nova Sugestão - Guia 43W');
+  var corpo = encodeURIComponent('Nome: ' + nome + '\nNota: ' + nota + '/5\n\nSugestão:\n' + sugestao);
+  window.location.href = 'mailto:' + email + '?subject=' + assunto + '&body=' + corpo;
+}
+</script></div></section>
 </div>
     </main>
   </div>
