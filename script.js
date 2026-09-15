@@ -74,8 +74,8 @@ activate(panels[0].id);
       boardEl.appendChild(cell);
     });
   }
-  function winningLine(b=board){return wins.find(line=>line.every(i=>b[i]));}
-  function winner(b=board){const line=winningLine(b);return line&&b[line[0]];}
+  function winningLine(b=board){return wins.find(line=>b[line[0]] && b[line[0]]===b[line[1]] && b[line[1]]===b[line[2]]);}
+  function winner(b=board){const line=winningLine(b);return line ? b[line[0]] : null;}
   function resultAfterMove(b,player){const w=winner(b);if(w===player)return 10;if(w&&w!==player)return -10;if(b.every(Boolean))return 0;return null;}
 
   // IA com minimax: joga de forma estratégica e tenta sempre escolher a melhor resposta.
