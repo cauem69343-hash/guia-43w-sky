@@ -40,9 +40,9 @@
         <button class="tab" data-target="sec8"><span>📞</span><span>Ativação de receptor</span></button>
         <button class="tab" data-target="sec9"><span>📺</span><span>Reforço de sinal</span></button>
         <button class="tab" data-target="sec10"><span>📶</span><span>Como realizar recarga no CHAT</span></button>
-        <button class="tab" data-target="sec11"><span>💡</span><span>Sugestões</span></button>
         <button class="tab" data-target="sec13"><span>🎮</span><span>Minigame NP</span></button>
         <button class="tab" data-target="sec14"><span>📺</span><span>Grade de canais</span></button>
+        <button class="tab" data-target="sec11"><span>💡</span><span>Sugestões</span></button>
       </nav>
     </aside>
 
@@ -51,7 +51,7 @@
         <select id="selectTab" aria-label="Selecionar seção"></select>
       </div>
       <div class="quick">
-        <div><strong>14</strong><span>seções</span></div>
+        <div><strong>15</strong><span>seções</span></div>
         <div><strong>43W</strong><span>Nova Parabólica</span></div>
         <div><strong>9</strong><span>modelos listados</span></div>
       </div>
@@ -240,26 +240,26 @@
         </section>
 
         <section class="panel" id="sec13">
-          <div class="panel-head"><div class="panel-icon">🎮</div><div><h2>Minigame NP</h2><p>Tetris temático com os quatro receptores do 43W</p></div></div>
+          <div class="panel-head"><div class="panel-icon">🎮</div><div><h2>Minigame NP</h2><p>Jogo da Velha 43W — desafie a IA da Nova Parabólica</p></div></div>
           <div class="panel-body">
             <div class="np-game">
               <div class="np-game-top">
                 <div>
-                  <div class="np-game-title">TETRIS 43W</div>
-                  <div class="np-game-subtitle">Monte linhas usando receptores</div>
+                  <div class="np-game-title">JOGO DA VELHA 43W</div>
+                  <div class="np-game-subtitle">Você joga com <strong>X</strong> e a IA Nova Parabólica joga com <strong>O</strong>.</div>
                 </div>
-                <div class="np-game-stats"><span>Pontos <strong id="npScore">0</strong></span><span>Linhas <strong id="npLines">0</strong></span><span>Nível <strong id="npLevel">1</strong></span></div>
+                <div class="np-game-stats"><span>Você <strong id="npWins">0</strong></span><span>IA <strong id="npAiWins">0</strong></span><span>Empates <strong id="npDraws">0</strong></span></div>
               </div>
-              <div class="np-game-wrap">
-                <canvas id="npTetris" width="300" height="600" aria-label="Minigame Tetris 43W"></canvas>
+              <div class="ttt-wrap">
+                <div class="ttt-board" id="npTttBoard" role="grid" aria-label="Jogo da Velha Nova Parabólica 43W"></div>
                 <div class="np-game-side">
-                  <div class="np-next-card"><strong>Próximo receptor</strong><canvas id="npNext" width="150" height="120"></canvas></div>
-                  <button id="npStart" class="np-game-btn">▶ Novo jogo</button>
-                  <div class="np-controls"><strong>Controles</strong><span>← → mover</span><span>↑ girar</span><span>↓ acelerar</span><span>Espaço: queda rápida</span></div>
-                  <div class="np-brand-key"><strong>Receptores</strong><span>▰ Bedin SAT</span><span>▰ Elsys</span><span>▰ Vivensis</span><span>▰ Century</span></div>
+                  <div class="np-next-card ttt-info"><strong>Nova Parabólica IA</strong><span>Ela analisa as jogadas e tenta bloquear seus caminhos para a vitória.</span></div>
+                  <button id="npStart" class="np-game-btn">▶ Nova partida</button>
+                  <div class="np-controls"><strong>Como jogar</strong><span>1. Você começa com X.</span><span>2. Clique em uma casa vazia.</span><span>3. A IA responde automaticamente.</span></div>
+                  <div class="np-brand-key"><strong>Objetivo</strong><span>Complete 3 símbolos em linha.</span><span>Horizontal, vertical ou diagonal.</span></div>
                 </div>
               </div>
-              <div id="npMessage" class="np-game-message">Clique em “Novo jogo” para começar.</div>
+              <div id="npMessage" class="np-game-message">Clique em “Nova partida” para começar.</div>
             </div>
           </div>
         </section>
@@ -305,6 +305,7 @@
             </form>
           </div>
         </section>
+
       </div>
     </main>
   </div>
