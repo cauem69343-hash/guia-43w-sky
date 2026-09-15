@@ -41,6 +41,7 @@
         <button class="tab" data-target="sec9"><span>📺</span><span>Reforço de sinal</span></button>
         <button class="tab" data-target="sec10"><span>📶</span><span>Como realizar recarga no CHAT</span></button>
         <button class="tab" data-target="sec11"><span>💡</span><span>Sugestões</span></button>
+        <button class="tab" data-target="sec13"><span>🎮</span><span>Minigame NP</span></button>
       </nav>
     </aside>
 
@@ -49,7 +50,7 @@
         <select id="selectTab" aria-label="Selecionar seção"></select>
       </div>
       <div class="quick">
-        <div><strong>13</strong><span>seções</span></div>
+        <div><strong>14</strong><span>seções</span></div>
         <div><strong>43W</strong><span>Nova Parabólica</span></div>
         <div><strong>9</strong><span>modelos listados</span></div>
       </div>
@@ -63,10 +64,7 @@
         <section class="panel" id="sec1">
           <div class="panel-head"><div class="panel-icon">💻</div><div><h2>Marcas de receptores disponíveis no 43W</h2><p>Procedimento e informações do guia</p></div></div>
           <div class="panel-body">
-            <p>Bedin SAT</p>
-            <p>Elsys</p>
-            <p>Vivensis</p>
-            <p>Century</p>
+            <img src="receptores-43w.png" alt="Receptores Bedin SAT, Elsys, Vivensis e Century" style="display:block;width:100%;max-width:1100px;height:auto;margin:0 auto;border-radius:14px;">
           </div>
         </section>
 
@@ -237,6 +235,31 @@
             <p><strong>4.</strong> Se o arquivo estiver em uma pasta zipada, ele deve ser extraído.</p>
             <br>
             <p><strong>LINK do software -</strong> <a href="https://www.bedinsat.com.br/uploads/production_stage_4_allcode.abs" target="_blank" rel="noopener noreferrer">https://www.bedinsat.com.br/uploads/production_stage_4_allcode.abs</a></p>
+          </div>
+        </section>
+
+        <section class="panel" id="sec13">
+          <div class="panel-head"><div class="panel-icon">🎮</div><div><h2>Minigame NP</h2><p>Tetris temático com os quatro receptores do 43W</p></div></div>
+          <div class="panel-body">
+            <div class="np-game">
+              <div class="np-game-top">
+                <div>
+                  <div class="np-game-title">TETRIS 43W</div>
+                  <div class="np-game-subtitle">Monte linhas usando receptores</div>
+                </div>
+                <div class="np-game-stats"><span>Pontos <strong id="npScore">0</strong></span><span>Linhas <strong id="npLines">0</strong></span><span>Nível <strong id="npLevel">1</strong></span></div>
+              </div>
+              <div class="np-game-wrap">
+                <canvas id="npTetris" width="300" height="600" aria-label="Minigame Tetris 43W"></canvas>
+                <div class="np-game-side">
+                  <div class="np-next-card"><strong>Próximo receptor</strong><canvas id="npNext" width="150" height="120"></canvas></div>
+                  <button id="npStart" class="np-game-btn">▶ Novo jogo</button>
+                  <div class="np-controls"><strong>Controles</strong><span>← → mover</span><span>↑ girar</span><span>↓ acelerar</span><span>Espaço: queda rápida</span></div>
+                  <div class="np-brand-key"><strong>Receptores</strong><span>▰ Bedin SAT</span><span>▰ Elsys</span><span>▰ Vivensis</span><span>▰ Century</span></div>
+                </div>
+              </div>
+              <div id="npMessage" class="np-game-message">Clique em “Novo jogo” para começar.</div>
+            </div>
           </div>
         </section>
 

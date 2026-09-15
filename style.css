@@ -59,3 +59,24 @@ h1{margin:3px 0 5px;font-size:clamp(25px,4vw,40px)}
   h1{font-size:24px}.hero p{font-size:13px}.panel-head{padding:18px}.panel-body{padding:18px}
   .panel-head h2{font-size:18px}.panel-icon{width:44px;height:44px}
 }
+
+/* Minigame NP */
+.np-game{background:linear-gradient(145deg,#fff8f3,#ffffff);border:1px solid var(--line);border-radius:18px;padding:20px;max-width:900px;margin:auto;box-shadow:0 10px 30px rgba(104,57,24,.07)}
+.np-game-top{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:16px}
+.np-game-title{font-size:25px;font-weight:950;letter-spacing:1px;color:var(--orange-dark)}
+.np-game-subtitle{font-size:13px;color:var(--muted);margin-top:3px}
+.np-game-stats{display:flex;gap:9px;flex-wrap:wrap;justify-content:flex-end}
+.np-game-stats span{background:#fff;border:1px solid var(--line);border-radius:10px;padding:7px 10px;font-size:12px;color:var(--muted)}
+.np-game-stats strong{display:block;color:var(--text);font-size:17px;margin-top:2px}
+.np-game-wrap{display:flex;justify-content:center;align-items:flex-start;gap:20px;flex-wrap:wrap}
+#npTetris{width:min(300px,82vw);height:auto;display:block;background:#102b45;border:5px solid #0d2337;border-radius:12px;box-shadow:0 10px 25px rgba(14,35,55,.2);touch-action:none}
+.np-game-side{width:190px;display:flex;flex-direction:column;gap:12px}
+.np-next-card,.np-controls,.np-brand-key{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px}
+.np-next-card strong,.np-controls strong,.np-brand-key strong{display:block;font-size:12px;color:var(--text);margin-bottom:7px}
+#npNext{display:block;width:150px;height:120px;max-width:100%;background:#fff8f3;border-radius:8px}
+.np-game-btn{border:0;border-radius:11px;padding:12px 14px;background:var(--orange);color:#fff;font-weight:900;cursor:pointer;box-shadow:0 7px 16px rgba(255,106,0,.22)}
+.np-game-btn:hover{background:var(--orange-dark)}
+.np-controls,.np-brand-key{display:flex;flex-direction:column;gap:6px;font-size:12px;color:var(--muted);line-height:1.4}
+.np-brand-key span{font-weight:700;color:#4a5d72}
+.np-game-message{text-align:center;margin-top:15px;color:var(--muted);font-size:13px;font-weight:700}
+@media(max-width:600px){.np-game{padding:14px}.np-game-top{display:block}.np-game-stats{justify-content:flex-start;margin-top:12px}.np-game-side{width:min(300px,82vw);display:grid;grid-template-columns:1fr 1fr}.np-next-card{grid-column:1 / -1}.np-game-btn{grid-column:1 / -1}.np-controls,.np-brand-key{font-size:11px}}
