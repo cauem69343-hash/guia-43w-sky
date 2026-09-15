@@ -168,7 +168,7 @@ activate(panels[0].id);
   function endGame(){running=false;gameOver=true;messageEl.textContent='Fim de jogo. Clique em “Novo jogo” para tentar novamente.';}
   function loop(time=0){
     const dt=time-lastTime;lastTime=time;
-    if(running){dropCounter+=dt;const speed=Math.max(90,850-(level-1)*70);if(dropCounter>speed)drop();draw();raf=requestAnimationFrame(loop);} else draw();
+    if(running){dropCounter+=dt;const speed=Math.max(400,1400-(level-1)*100);if(dropCounter>speed)drop();draw();raf=requestAnimationFrame(loop);} else draw();
   }
   function start(){
     cancelAnimationFrame(raf);board=emptyBoard();score=0;lines=0;level=1;gameOver=false;running=true;nextPiece=randomPiece();spawn();updateStats();messageEl.textContent='Use as setas para jogar. Boa sorte!';lastTime=performance.now();dropCounter=0;raf=requestAnimationFrame(loop);
