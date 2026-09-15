@@ -80,3 +80,20 @@ h1{margin:3px 0 5px;font-size:clamp(25px,4vw,40px)}
 .np-brand-key span{font-weight:700;color:#4a5d72}
 .np-game-message{text-align:center;margin-top:15px;color:var(--muted);font-size:13px;font-weight:700}
 @media(max-width:600px){.np-game{padding:14px}.np-game-top{display:block}.np-game-stats{justify-content:flex-start;margin-top:12px}.np-game-side{width:min(300px,82vw);display:grid;grid-template-columns:1fr 1fr}.np-next-card{grid-column:1 / -1}.np-game-btn{grid-column:1 / -1}.np-controls,.np-brand-key{font-size:11px}}
+
+
+/* ===== Grade de canais ===== */
+.channel-grade-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.channel-grade-tab{border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 15px;font-weight:800;color:#506079;cursor:pointer;transition:.15s}
+.channel-grade-tab:hover{background:#fff3eb;color:var(--orange-dark)}
+.channel-grade-tab.active{background:var(--orange);color:#fff;border-color:var(--orange);box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.channel-grade-note{font-size:13px;color:#6b7280;margin:0 0 14px}
+.channel-grade-table-wrap{overflow:auto;border:1px solid var(--line);border-radius:12px;background:#fff}
+.channel-grade-table{width:100%;border-collapse:collapse;min-width:420px}
+.channel-grade-table th{background:#fff3eb;color:var(--orange-dark);font-weight:900;text-align:left;padding:11px 14px;border-bottom:2px solid var(--line);position:sticky;top:0}
+.channel-grade-table th:last-child,.channel-grade-table td:last-child{text-align:center;width:130px}
+.channel-grade-table td{padding:9px 14px;border-bottom:1px solid #edf0f3;color:#243447}
+.channel-grade-table tr:nth-child(even) td{background:#fcfcfc}
+.channel-grade-table tr:hover td{background:#fff8f3}
+.channel-grade-empty{padding:20px;text-align:center;color:#6b7280}
+@media(max-width:600px){.channel-grade-tab{flex:1 1 calc(50% - 8px)}.channel-grade-table{min-width:320px}.channel-grade-table th:last-child,.channel-grade-table td:last-child{width:90px}}

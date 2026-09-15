@@ -42,6 +42,7 @@
         <button class="tab" data-target="sec10"><span>📶</span><span>Como realizar recarga no CHAT</span></button>
         <button class="tab" data-target="sec11"><span>💡</span><span>Sugestões</span></button>
         <button class="tab" data-target="sec13"><span>🎮</span><span>Minigame NP</span></button>
+        <button class="tab" data-target="sec14"><span>📺</span><span>Grade de canais</span></button>
       </nav>
     </aside>
 
@@ -260,6 +261,20 @@
               </div>
               <div id="npMessage" class="np-game-message">Clique em “Novo jogo” para começar.</div>
             </div>
+          </div>
+        </section>
+
+        <section class="panel" id="sec14">
+          <div class="panel-head"><div class="panel-icon">📺</div><div><h2>Grade de canais</h2><p>Grades de canais da Nova Parabólica 43W</p></div></div>
+          <div class="panel-body">
+            <div class="channel-grade-tabs" role="tablist" aria-label="Grades de canais">
+              <button class="channel-grade-tab active" data-grade="tvro" role="tab">Grade TVRO</button>
+              <button class="channel-grade-tab" data-grade="pop" role="tab">Grade POP</button>
+              <button class="channel-grade-tab" data-grade="super" role="tab">Grade SUPER</button>
+              <button class="channel-grade-tab" data-grade="top" role="tab">Grade TOP</button>
+            </div>
+            <div class="channel-grade-note">Selecione uma grade para visualizar os canais e respectivos números.</div>
+            <div id="channelGradeContent"></div>
           </div>
         </section>
 
