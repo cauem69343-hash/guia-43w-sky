@@ -240,26 +240,32 @@
         </section>
 
         <section class="panel" id="sec13">
-          <div class="panel-head"><div class="panel-icon">🎮</div><div><h2>Minigame NP</h2><p>Jogo da Velha 43W — desafie a IA da Nova Parabólica</p></div></div>
+          <div class="panel-head"><div class="panel-icon">🎯</div><div><h2>Jogo da Forca NP</h2><p>Descubra palavras-chave do guia Nova Parabólica 43W</p></div></div>
           <div class="panel-body">
-            <div class="np-game">
-              <div class="np-game-top">
+            <div class="np-hangman">
+              <div class="np-hangman-top">
                 <div>
-                  <div class="np-game-title">JOGO DA VELHA 43W</div>
-                  <div class="np-game-subtitle">Você joga com <strong>X</strong> e a IA Nova Parabólica joga com <strong>O</strong>.</div>
+                  <div class="np-game-title">FORCA NOVA PARABÓLICA 43W</div>
+                  <div class="np-game-subtitle">Adivinhe palavras relacionadas aos equipamentos, procedimentos, recargas e canais do guia.</div>
                 </div>
-                <div class="np-game-stats"><span>Você <strong id="npWins">0</strong></span><span>IA <strong id="npAiWins">0</strong></span><span>Empates <strong id="npDraws">0</strong></span></div>
+                <div class="np-game-stats"><span>Vitórias <strong id="npHangWins">0</strong></span><span>Derrotas <strong id="npHangLosses">0</strong></span><span>Sequência <strong id="npHangStreak">0</strong></span></div>
               </div>
-              <div class="ttt-wrap">
-                <div class="ttt-board" id="npTttBoard" role="grid" aria-label="Jogo da Velha Nova Parabólica 43W"></div>
-                <div class="np-game-side">
-                  <div class="np-next-card ttt-info"><strong>Nova Parabólica IA</strong><span>Ela analisa as jogadas e tenta bloquear seus caminhos para a vitória.</span></div>
-                  <button id="npStart" class="np-game-btn">▶ Nova partida</button>
-                  <div class="np-controls"><strong>Como jogar</strong><span>1. Você começa com X.</span><span>2. Clique em uma casa vazia.</span><span>3. A IA responde automaticamente.</span></div>
-                  <div class="np-brand-key"><strong>Objetivo</strong><span>Complete 3 símbolos em linha.</span><span>Horizontal, vertical ou diagonal.</span></div>
+
+              <div class="hangman-wrap">
+                <div class="hangman-drawing" aria-label="Desenho da forca">
+                  <div class="hangman-gallows"><span class="hg-base"></span><span class="hg-pole"></span><span class="hg-top"></span><span class="hg-rope"></span></div>
+                  <div class="hangman-person"><span class="hg-head"></span><span class="hg-body"></span><span class="hg-arm hg-arm-left"></span><span class="hg-arm hg-arm-right"></span><span class="hg-leg hg-leg-left"></span><span class="hg-leg hg-leg-right"></span></div>
+                </div>
+                <div class="hangman-game">
+                  <div id="npHangCategory" class="hangman-category">Categoria: —</div>
+                  <div id="npHangWord" class="hangman-word" aria-live="polite">_ _ _ _ _</div>
+                  <div class="hangman-info"><span>Erros: <strong id="npHangErrors">0</strong>/6</span><span>Palavra: <strong id="npHangHint">—</strong></span></div>
+                  <div id="npHangKeyboard" class="hangman-keyboard" aria-label="Teclado do jogo da forca"></div>
+                  <button id="npHangNew" class="np-game-btn" type="button">▶ Nova palavra</button>
                 </div>
               </div>
-              <div id="npMessage" class="np-game-message">Clique em “Nova partida” para começar.</div>
+              <div id="npHangMessage" class="np-game-message">Clique em “Nova palavra” para começar.</div>
+              <div class="hangman-tip"><strong>💡 Dica:</strong> as palavras são escolhidas a partir dos assuntos presentes no próprio guia HTML da Nova Parabólica 43W.</div>
             </div>
           </div>
         </section>

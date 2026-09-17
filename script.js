@@ -47,82 +47,86 @@ search.addEventListener('input',filter);
 activate(panels[0].id);
 
 
-/* ===== Minigame NP - Jogo da Velha 43W ===== */
+/* ===== Minigame NP - Jogo da Forca 43W ===== */
 (() => {
-  const boardEl=document.getElementById('npTttBoard');
-  const startBtn=document.getElementById('npStart');
-  const messageEl=document.getElementById('npMessage');
-  const winsEl=document.getElementById('npWins');
-  const aiWinsEl=document.getElementById('npAiWins');
-  const drawsEl=document.getElementById('npDraws');
-  if(!boardEl||!startBtn) return;
+  const wordEl=document.getElementById('npHangWord');
+  const keyboardEl=document.getElementById('npHangKeyboard');
+  const newBtn=document.getElementById('npHangNew');
+  const messageEl=document.getElementById('npHangMessage');
+  const categoryEl=document.getElementById('npHangCategory');
+  const errorsEl=document.getElementById('npHangErrors');
+  const hintEl=document.getElementById('npHangHint');
+  const winsEl=document.getElementById('npHangWins');
+  const lossesEl=document.getElementById('npHangLosses');
+  const streakEl=document.getElementById('npHangStreak');
+  if(!wordEl||!keyboardEl||!newBtn) return;
 
-  const HUMAN='X', AI='O';
-  const wins=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
-  let board=Array(9).fill(''), running=false, thinking=false;
-  let winsCount=0, aiWins=0, draws=0;
+  // Palavras baseadas nos assuntos, equipamentos, procedimentos e grades presentes no HTML do guia.
+  const words=[
+    ['NOVA PARABOLICA','Guia'],['PARABOLICA','Guia'],['SATELITE','Guia'],['SKY','Guia'],['QUARENTA E TRES W','43W'],
+    ['RECEPTOR','Equipamentos'],['BEDIN SAT','Equipamentos'],['ELSYS','Equipamentos'],['VIVENSIS','Equipamentos'],['CENTURY','Equipamentos'],
+    ['SOFTWARE','Procedimentos'],['ATUALIZACAO','Procedimentos'],['PEN DRIVE','Procedimentos'],['RECOVERY','Procedimentos'],['OTA','Procedimentos'],
+    ['ATIVACAO','Procedimentos'],['SINAL','Procedimentos'],['CAID','Ativação'],['SCUA','Ativação'],['RECARGA','Recargas'],
+    ['TVRO','Grade de canais'],['POP','Grade de canais'],['SUPER','Grade de canais'],['TOP','Grade de canais'],['CANAL','Grade de canais'],
+    ['GLOBO','Grade de canais'],['RECORD TV','Grade de canais'],['SBT','Grade de canais'],['BAND','Grade de canais'],['REDE TV','Grade de canais'],
+    ['JOVEM PAN NEWS','Grade de canais'],['CNN BRASIL','Grade de canais'],['TV BRASIL','Grade de canais'],['CANAL RURAL','Grade de canais'],
+    ['TELECINE','Recargas'],['PREMIERE','Recargas'],['COMBATE','Recargas'],['SPORTV','Grade de canais'],['FUTURA','Grade de canais'],
+    ['SUGESTOES','Guia']
+  ];
+  const alphabet='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  let current=null, guessed=new Set(), errors=0, running=false;
+  let wins=0, losses=0, streak=0;
 
-  function render(winLine=[]){
-    boardEl.innerHTML='';
-    board.forEach((value,i)=>{
-      const cell=document.createElement('button');
-      cell.className='ttt-cell'+(value==='X'?' x':'')+(value==='O'?' o':'')+(winLine.includes(i)?' win':'');
-      cell.type='button'; cell.dataset.index=i; cell.textContent=value;
-      cell.disabled=!!value||!running||thinking;
-      cell.setAttribute('aria-label',value?`Casa ${i+1}: ${value}`:`Casa ${i+1}: vazia`);
-      cell.addEventListener('click',()=>humanMove(i));
-      boardEl.appendChild(cell);
-    });
+  const normalize=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase();
+  function masked(){
+    return [...current.word].map(ch=>ch===' ' ? '•' : guessed.has(normalize(ch)) ? ch : '_').join(' ');
   }
-  function winningLine(b=board){return wins.find(line=>b[line[0]] && b[line[0]]===b[line[1]] && b[line[1]]===b[line[2]]);}
-  function winner(b=board){const line=winningLine(b);return line ? b[line[0]] : null;}
-  function resultAfterMove(b,player){const w=winner(b);if(w===player)return 10;if(w&&w!==player)return -10;if(b.every(Boolean))return 0;return null;}
-
-  // IA com minimax: joga de forma estratégica e tenta sempre escolher a melhor resposta.
-  function minimax(b,isMax){
-    const w=winner(b);
-    if(w===AI)return 10; if(w===HUMAN)return -10; if(b.every(Boolean))return 0;
-    if(isMax){
-      let best=-Infinity;
-      for(let i=0;i<9;i++) if(!b[i]){b[i]=AI;best=Math.max(best,minimax(b,false));b[i]='';}
-      return best;
+  function renderWord(){wordEl.textContent=masked();}
+  function renderKeyboard(){
+    keyboardEl.innerHTML='';
+    for(const letter of alphabet){
+      const b=document.createElement('button');
+      b.type='button'; b.className='hangman-key'; b.textContent=letter;
+      const used=guessed.has(letter);
+      b.disabled=!running||used;
+      if(used) b.classList.add(current.wordNormalized.includes(letter)?'correct':'wrong');
+      b.addEventListener('click',()=>guess(letter));
+      keyboardEl.appendChild(b);
     }
-    let best=Infinity;
-    for(let i=0;i<9;i++) if(!b[i]){b[i]=HUMAN;best=Math.min(best,minimax(b,true));b[i]='';}
-    return best;
   }
-  function aiMove(){
-    if(!running)return;
-    thinking=true; render(); messageEl.textContent='A IA Nova Parabólica está pensando…';
-    setTimeout(()=>{
-      let best=-Infinity,move=-1;
-      for(let i=0;i<9;i++) if(!board[i]){board[i]=AI;const score=minimax(board,false);board[i]='';if(score>best){best=score;move=i;}}
-      if(move>=0) board[move]=AI;
-      thinking=false; finishOrContinue('IA');
-    },420);
+  function updateDrawing(){
+    const parts=['.hg-head','.hg-body','.hg-arm-left','.hg-arm-right','.hg-leg-left','.hg-leg-right'];
+    parts.forEach((sel,i)=>{const el=document.querySelector(sel);if(el) el.style.opacity=errors>i?'1':'0';});
   }
-  function humanMove(i){
-    if(!running||thinking||board[i])return;
-    board[i]=HUMAN;
-    if(finishOrContinue('Você'))return;
-    aiMove();
+  function updateStats(){winsEl.textContent=wins;lossesEl.textContent=losses;streakEl.textContent=streak;}
+  function isComplete(){return [...current.wordNormalized].filter(c=>/[A-Z]/.test(c)).every(c=>guessed.has(c));}
+  function finish(win){
+    running=false;
+    if(win){wins++;streak++;messageEl.textContent=`🎉 Parabéns! Você descobriu “${current.word}”.`;}
+    else {losses++;streak=0;messageEl.textContent=`❌ Fim de jogo! A palavra era “${current.word}”.`;}
+    updateStats();renderWord();renderKeyboard();updateDrawing();
   }
-  function finishOrContinue(last){
-    const line=winningLine();
-    if(line){
-      running=false;
-      if(board[line[0]]===HUMAN){winsCount++;messageEl.textContent='🎉 Você venceu a IA Nova Parabólica!';}
-      else {aiWins++;messageEl.textContent='🤖 A IA Nova Parabólica venceu. Tente novamente!';}
-      updateStats(); render(line); return true;
-    }
-    if(board.every(Boolean)){draws++;running=false;messageEl.textContent='🤝 Empate! Boa partida.';updateStats();render();return true;}
-    messageEl.textContent=last==='Você'?'🤖 Sua vez terminou. A IA vai jogar…':'Sua vez: escolha uma casa.';
-    render(); return false;
+  function guess(letter){
+    if(!running||guessed.has(letter)) return;
+    guessed.add(letter);
+    if(!current.wordNormalized.includes(letter)) errors++;
+    renderWord();renderKeyboard();updateDrawing();errorsEl.textContent=errors;
+    if(isComplete()) return finish(true);
+    if(errors>=6) return finish(false);
+    messageEl.textContent=current.wordNormalized.includes(letter)?'✅ Boa! Essa letra faz parte da palavra.':'❌ Essa letra não aparece na palavra.';
   }
-  function updateStats(){winsEl.textContent=winsCount;aiWinsEl.textContent=aiWins;drawsEl.textContent=draws;}
-  function start(){board=Array(9).fill('');running=true;thinking=false;messageEl.textContent='Sua vez: escolha uma casa para colocar X.';render();}
-  startBtn.addEventListener('click',start);
-  updateStats();render();
+  function newWord(){
+    const available=words.filter(w=>!current||w[0]!==current.word);
+    const pick=available[Math.floor(Math.random()*available.length)];
+    current={word:pick[0],category:pick[1],wordNormalized:normalize(pick[0])};
+    guessed=new Set();errors=0;running=true;
+    categoryEl.textContent=`Categoria: ${current.category}`;
+    hintEl.textContent=current.word.length>10?'expressão do guia':'palavra-chave';
+    errorsEl.textContent='0';messageEl.textContent='Sua vez! Escolha uma letra.';
+    renderWord();renderKeyboard();updateDrawing();
+  }
+  newBtn.addEventListener('click',newWord);
+  updateStats();renderKeyboard();updateDrawing();
 })();
 
 /* ===== Grade de canais ===== */

@@ -62,31 +62,28 @@ h1{margin:3px 0 5px;font-size:clamp(25px,4vw,40px)}
 
 /* Minigame NP - Jogo da Velha 43W */
 .np-game{background:linear-gradient(145deg,#fff8f3,#ffffff);border:1px solid var(--line);border-radius:18px;padding:20px;max-width:900px;margin:auto;box-shadow:0 10px 30px rgba(104,57,24,.07)}
-.np-game-top{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:16px}
+.np-game-top,.np-hangman-top{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:16px}
 .np-game-title{font-size:25px;font-weight:950;letter-spacing:1px;color:var(--orange-dark)}
-.np-game-subtitle{font-size:13px;color:var(--muted);margin-top:3px}
+.np-game-subtitle{font-size:13px;color:var(--muted);margin-top:3px;line-height:1.5}
 .np-game-stats{display:flex;gap:9px;flex-wrap:wrap;justify-content:flex-end}
 .np-game-stats span{background:#fff;border:1px solid var(--line);border-radius:10px;padding:7px 10px;font-size:12px;color:var(--muted)}
 .np-game-stats strong{display:block;color:var(--text);font-size:17px;margin-top:2px}
-.ttt-wrap{display:flex;justify-content:center;align-items:flex-start;gap:24px;flex-wrap:wrap}
-.ttt-board{width:min(390px,82vw);aspect-ratio:1;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:10px;background:#123b5d;border:5px solid #0d2941;border-radius:18px;box-shadow:0 12px 30px rgba(14,35,55,.2)}
-.ttt-cell{border:0;border-radius:12px;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:clamp(48px,12vw,82px);font-weight:950;line-height:1;box-shadow:inset 0 -4px 0 rgba(0,0,0,.08);transition:transform .12s,background .12s}
-.ttt-cell:hover:not(:disabled){background:#fff4eb;transform:scale(.97)}
-.ttt-cell:disabled{cursor:default}
-.ttt-cell.x{color:var(--orange-dark)}
-.ttt-cell.o{color:#176a9e}
-.ttt-cell.win{background:#fff0df;box-shadow:inset 0 0 0 3px var(--orange),inset 0 -4px 0 rgba(0,0,0,.08);animation:tttPulse .6s ease-in-out 2}
-@keyframes tttPulse{50%{transform:scale(1.03)}}
-.np-game-side{width:220px;display:flex;flex-direction:column;gap:12px}
-.np-next-card,.np-controls,.np-brand-key{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px}
-.np-next-card strong,.np-controls strong,.np-brand-key strong{display:block;font-size:12px;color:var(--text);margin-bottom:7px}
 .np-game-btn{border:0;border-radius:11px;padding:12px 14px;background:var(--orange);color:#fff;font-weight:900;cursor:pointer;box-shadow:0 7px 16px rgba(255,106,0,.22)}
 .np-game-btn:hover{background:var(--orange-dark)}
-.np-controls,.np-brand-key{display:flex;flex-direction:column;gap:6px;font-size:12px;color:var(--muted);line-height:1.4}
-.np-brand-key span{font-weight:700;color:#4a5d72}
-.ttt-info span{display:block;font-size:12px;color:var(--muted);line-height:1.5}
 .np-game-message{text-align:center;margin-top:15px;color:var(--muted);font-size:13px;font-weight:700}
-@media(max-width:600px){.np-game{padding:14px}.np-game-top{display:block}.np-game-stats{justify-content:flex-start;margin-top:12px}.np-game-side{width:min(390px,82vw);display:grid;grid-template-columns:1fr 1fr}.ttt-info{grid-column:1 / -1}.np-game-btn{grid-column:1 / -1}.np-controls,.np-brand-key{font-size:11px}}
+.np-hangman{padding:4px}
+.hangman-wrap{display:flex;justify-content:center;align-items:center;gap:42px;flex-wrap:wrap}
+.hangman-drawing{position:relative;width:min(330px,82vw);height:300px;background:linear-gradient(180deg,#fffaf6,#fff);border:1px solid var(--line);border-radius:18px;box-shadow:0 12px 30px rgba(14,35,55,.10);overflow:hidden}
+.hangman-gallows span{position:absolute;display:block;background:#123b5d;border-radius:4px}
+.hg-base{width:190px;height:10px;left:55px;bottom:28px}.hg-pole{width:10px;height:230px;left:75px;bottom:33px}.hg-top{width:145px;height:10px;left:75px;top:37px}.hg-rope{width:7px;height:35px;left:213px;top:42px}
+.hangman-person span{position:absolute;display:block;opacity:0;transition:opacity .2s,transform .2s}.hg-head{width:48px;height:48px;border:7px solid var(--orange-dark);border-radius:50%;left:193px;top:70px}.hg-body{width:8px;height:76px;background:var(--orange-dark);left:216px;top:123px;border-radius:5px}.hg-arm,.hg-leg{height:7px;background:var(--orange-dark);border-radius:5px;transform-origin:left center}.hg-arm-left{width:50px;left:216px;top:139px;transform:rotate(145deg)}.hg-arm-right{width:50px;left:216px;top:139px;transform:rotate(35deg)}.hg-leg-left{width:55px;left:216px;top:193px;transform:rotate(115deg)}.hg-leg-right{width:55px;left:216px;top:193px;transform:rotate(65deg)}
+.hangman-game{width:min(520px,92vw);display:flex;flex-direction:column;gap:14px;align-items:center}
+.hangman-category{font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.7px;color:var(--orange-dark);background:#fff4eb;border:1px solid #ffd2b5;border-radius:999px;padding:7px 13px}
+.hangman-word{min-height:55px;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:9px;font-size:clamp(25px,6vw,42px);font-weight:950;letter-spacing:4px;color:#123b5d;text-align:center}
+.hangman-info{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;color:var(--muted);font-size:12px}.hangman-info strong{color:var(--text)}
+.hangman-keyboard{display:grid;grid-template-columns:repeat(9,1fr);gap:7px;width:100%;max-width:500px}.hangman-key{border:1px solid var(--line);background:#fff;border-radius:8px;min-height:38px;font-weight:900;color:#123b5d;cursor:pointer}.hangman-key:hover:not(:disabled){background:#fff4eb;border-color:#ffb98d}.hangman-key:disabled{opacity:.42;cursor:default}.hangman-key.correct{background:#eaf7ee;border-color:#9ad4ab}.hangman-key.wrong{background:#fff0f0;border-color:#e2a1a1}
+.hangman-tip{margin-top:14px;text-align:center;font-size:12px;color:var(--muted);padding:10px;border-radius:10px;background:#fffaf6;border:1px solid var(--line)}
+@media(max-width:600px){.np-hangman{padding:14px}.np-hangman-top{display:block}.np-game-stats{justify-content:flex-start;margin-top:12px}.hangman-drawing{height:250px}.hangman-keyboard{grid-template-columns:repeat(7,1fr)}.hangman-key{min-height:36px}.np-game-title{font-size:21px}}
 
 
 /* ===== Grade de canais ===== */
