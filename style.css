@@ -101,3 +101,29 @@ h1{margin:3px 0 5px;font-size:clamp(25px,4vw,40px)}
 .channel-grade-table tr:hover td{background:#fff8f3}
 .channel-grade-empty{padding:20px;text-align:center;color:#6b7280}
 @media(max-width:600px){.channel-grade-tab{flex:1 1 calc(50% - 8px)}.channel-grade-table{min-width:320px}.channel-grade-table th:last-child,.channel-grade-table td:last-child{width:90px}}
+
+.manual-tp-image-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-x: auto;
+  padding: 4px 0 8px;
+}
+.manual-tp-image-wrap img {
+  display: block;
+  width: 100%;
+  max-width: 1050px;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.10);
+}
+
+/* Blocos da aba Ativação de receptor */
+.info-box,.step-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+.info-box{background:linear-gradient(135deg,#fff7f2,#fff)}
+.info-box h3,.step-card h3{margin:0 0 12px;color:var(--orange-dark,#d95121);font-size:17px}
+.step-card.optional{border-left:4px solid var(--orange,#ff6b35)}
+.step-card ol,.info-box ol{margin:8px 0 0;padding-left:24px}
+.step-card li,.info-box li{margin:8px 0;line-height:1.55}
+.step-card a,.info-box a{color:var(--orange-dark,#d95121);font-weight:600;word-break:break-word}
