@@ -127,3 +127,19 @@ h1{margin:3px 0 5px;font-size:clamp(25px,4vw,40px)}
 .step-card ol,.info-box ol{margin:8px 0 0;padding-left:24px}
 .step-card li,.info-box li{margin:8px 0;line-height:1.55}
 .step-card a,.info-box a{color:var(--orange-dark,#d95121);font-weight:600;word-break:break-word}
+
+
+/* ===== Área exclusiva protegida ===== */
+.hero-actions{position:relative;z-index:2;display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.exclusive-lock{border:1px solid rgba(255,255,255,.5);background:rgba(18,54,90,.95);color:#fff;border-radius:14px;padding:9px 13px;display:flex;align-items:center;gap:8px;font-weight:900;font-size:12px;letter-spacing:.5px;cursor:pointer;box-shadow:0 8px 18px rgba(0,0,0,.16);transition:.15s}
+.exclusive-lock:hover{transform:translateY(-1px);background:#0d2c4a}
+.lock-icon{font-size:18px;line-height:1}
+.exclusive-panel{display:none;background:#fff;border:2px solid var(--orange);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:20px}
+.exclusive-panel.unlocked{display:block;animation:fade .2s ease}
+.exclusive-panel-head{padding:20px 24px;background:linear-gradient(120deg,#fff3e9,#fff);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px}
+.exclusive-panel-head>span{font-size:28px}.exclusive-panel-head h2{margin:0;color:#173d61}.exclusive-panel-head p{margin:4px 0 0;color:var(--muted);font-size:13px}.exclusive-panel-body{padding:24px}.exclusive-note{color:var(--muted)!important}
+.password-modal{position:fixed;inset:0;background:rgba(9,27,44,.62);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:20px;z-index:9999}
+.password-modal.open{display:flex}.password-card{position:relative;width:min(390px,100%);background:#fff;border-radius:20px;padding:30px;box-shadow:0 25px 70px rgba(0,0,0,.3);text-align:center;border-top:5px solid var(--orange)}
+.password-icon{font-size:42px;margin-bottom:8px}.password-card h2{margin:0;color:#173d61}.password-card p{color:var(--muted);font-size:14px;line-height:1.5}.password-card input{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:11px;outline:none;text-align:center;font-size:18px;letter-spacing:3px;margin:8px 0 5px}.password-card input:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(255,106,0,.12)}.password-card .np-game-btn{width:100%;margin-top:10px}.password-close{position:absolute;right:12px;top:10px;border:0;background:transparent;font-size:28px;color:#667b91;cursor:pointer}.password-error{min-height:20px;color:#c53c32;font-size:12px;font-weight:800;margin-top:5px}
+@media(max-width:900px){.hero-actions{margin-left:auto}.exclusive-lock span:last-child{display:none}.exclusive-lock{padding:9px 11px}.hero-badge{display:block}}
+@media(max-width:600px){.hero-actions{gap:6px}.hero-badge{font-size:10px;padding:8px 10px}.exclusive-lock{padding:8px 10px}}

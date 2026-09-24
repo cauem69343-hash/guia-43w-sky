@@ -18,7 +18,12 @@
         <p>Consulta rápida para atendimento e suporte • SKY 43W</p>
       </div>
     </div>
-    <div class="hero-badge">🛰️ 43W SKY</div>
+    <div class="hero-actions">
+      <div class="hero-badge">🛰️ 43W SKY</div>
+      <button id="exclusiveLock" class="exclusive-lock" type="button" aria-label="Abrir área exclusiva" title="Área exclusiva">
+        <span class="lock-icon">🔒</span><span>Área exclusiva</span>
+      </button>
+    </div>
   </header>
 
   <div class="layout">
@@ -56,6 +61,15 @@
         <div><strong>43W</strong><span>Nova Parabólica</span></div>
         <div><strong>9</strong><span>modelos listados</span></div>
       </div>
+      <section class="exclusive-panel" id="exclusivePanel" aria-hidden="true">
+        <div class="exclusive-panel-head"><span>🔐</span><div><h2>Área exclusiva</h2><p>Conteúdo protegido por senha.</p></div></div>
+        <div class="exclusive-panel-body">
+          <p>🔓 Acesso liberado nesta sessão.</p>
+          <p class="exclusive-note">Esta área está preparada para receber conteúdos que você queira manter fora da navegação pública.</p>
+          <button id="exclusiveLogout" class="np-game-btn" type="button">Bloquear área</button>
+        </div>
+      </section>
+
       <div id="empty" class="empty">Nenhum conteúdo encontrado para sua busca.</div>
       <div id="content">
         <section class="panel" id="sec0">
@@ -384,5 +398,16 @@
   </div>
 </div>
 <script src="script.js"></script>
+  <div id="passwordModal" class="password-modal" aria-hidden="true">
+    <div class="password-card" role="dialog" aria-modal="true" aria-labelledby="passwordTitle">
+      <button id="passwordClose" class="password-close" type="button" aria-label="Fechar">×</button>
+      <div class="password-icon">🔒</div>
+      <h2 id="passwordTitle">Área exclusiva</h2>
+      <p>Digite a senha para acessar esta área.</p>
+      <input id="exclusivePassword" type="password" inputmode="numeric" maxlength="20" autocomplete="off" placeholder="Digite a senha" aria-label="Senha da área exclusiva">
+      <div id="passwordError" class="password-error" aria-live="polite"></div>
+      <button id="passwordEnter" class="np-game-btn" type="button">Acessar</button>
+    </div>
+  </div>
 </body>
 </html>

@@ -144,3 +144,61 @@ activate(panels[0].id);
   gradeTabs.forEach(btn => btn.addEventListener('click', () => renderGrade(btn.dataset.grade)));
   renderGrade('tvro');
 })();
+
+
+/* ===== Área exclusiva com senha ===== */
+(() => {
+  const lockBtn = document.getElementById('exclusiveLock');
+  const modal = document.getElementById('passwordModal');
+  const closeBtn = document.getElementById('passwordClose');
+  const passwordInput = document.getElementById('exclusivePassword');
+  const enterBtn = document.getElementById('passwordEnter');
+  const errorEl = document.getElementById('passwordError');
+  const panel = document.getElementById('exclusivePanel');
+  const logoutBtn = document.getElementById('exclusiveLogout');
+  if(!lockBtn || !modal || !passwordInput || !enterBtn || !panel) return;
+
+  const PASSWORD = '1597';
+
+  function openModal(){
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+    passwordInput.value='';
+    errorEl.textContent='';
+    setTimeout(()=>passwordInput.focus(),50);
+  }
+  function closeModal(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+  }
+  function unlock(){
+    if(passwordInput.value === PASSWORD){
+      sessionStorage.setItem('npExclusiveUnlocked','1');
+      panel.classList.add('unlocked');
+      panel.setAttribute('aria-hidden','false');
+      closeModal();
+      panel.scrollIntoView({behavior:'smooth',block:'start'});
+    }else{
+      errorEl.textContent='Senha incorreta. Tente novamente.';
+      passwordInput.select();
+    }
+  }
+  function lock(){
+    sessionStorage.removeItem('npExclusiveUnlocked');
+    panel.classList.remove('unlocked');
+    panel.setAttribute('aria-hidden','true');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  lockBtn.addEventListener('click',()=>{
+    if(sessionStorage.getItem('npExclusiveUnlocked')==='1'){
+      panel.classList.add('unlocked');
+      panel.setAttribute('aria-hidden','false');
+      panel.scrollIntoView({behavior:'smooth',block:'start'});
+    }else openModal();
+  });
+  closeBtn.addEventListener('click',closeModal);
+  enterBtn.addEventListener('click',unlock);
+  passwordInput.addEventListener('keydown',e=>{if(e.key==='Enter') unlock(); if(e.key==='Escape') closeModal();});
+  modal.addEventListener('click',e=>{if(e.target===modal) closeModal();});
+  logoutBtn?.addEventListener('click',lock);
+})();
