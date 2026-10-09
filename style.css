@@ -253,3 +253,19 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 .dark-theme .channel-pdf-info p,.theme-dark .channel-pdf-info p{color:#aaa4b8}
 .dark-theme .channel-pdf-card-featured,.theme-dark .channel-pdf-card-featured{background:#211923}
 @media(max-width:600px){.channel-pdf-grid{grid-template-columns:1fr}.channel-pdf-card{padding:14px}}
+
+/* Categoria expansível das grades de canais */
+.channel-category{margin-top:16px;border:1px solid var(--line);border-radius:16px;background:var(--card, #fff);overflow:hidden}
+.channel-category>summary{display:flex;align-items:center;gap:13px;padding:17px 19px;cursor:pointer;list-style:none;user-select:none;background:linear-gradient(120deg,rgba(255,153,0,.10),rgba(255,153,0,.025))}
+.channel-category>summary::-webkit-details-marker{display:none}
+.channel-category-icon{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:var(--orange);color:white;font-size:22px;flex-shrink:0}
+.channel-category-label{display:flex;flex-direction:column;gap:3px;min-width:0}
+.channel-category-label strong{font-size:17px;color:var(--orange-dark)}
+.channel-category-label small{font-size:12px;color:var(--muted, #687080)}
+.channel-category-count{margin-left:auto;font-size:12px;font-weight:800;padding:6px 9px;border-radius:999px;background:rgba(255,153,0,.13);color:var(--orange-dark);white-space:nowrap}
+.channel-category-chevron{font-size:22px;transition:transform .2s ease;color:var(--orange-dark)}
+.channel-category[open] .channel-category-chevron{transform:rotate(180deg)}
+.channel-category-content{padding:0 16px 16px;margin-top:0}
+.dark-theme .channel-category,.theme-dark .channel-category{background:#151219;border-color:#3b3045}
+.dark-theme .channel-category-label small,.theme-dark .channel-category-label small{color:#aaa4b8}
+@media(max-width:600px){.channel-category>summary{padding:14px;gap:9px}.channel-category-icon{width:36px;height:36px}.channel-category-count{font-size:11px;padding:5px 7px}.channel-category-content{padding:0 10px 10px}}
