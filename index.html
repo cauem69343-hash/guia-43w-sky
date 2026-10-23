@@ -40,6 +40,7 @@
         <button class="tab" data-target="sec12"><span>💾</span><span>Como atualizar equipamento Bedin SAT via pen drive</span></button>
         <button class="tab" data-target="sec3"><span>🔄</span><span>Recovery via OTA</span></button>
         <button class="tab" data-target="sec4"><span>🛠️</span><span>Recovery Vivensis</span></button>
+        <button class="tab" data-target="sec16"><span>📍</span><span>Regional x regionalizado</span></button>
         <button class="tab" data-target="sec5"><span>💾</span><span>Cenários prováveis</span></button>
         <button class="tab" data-target="sec6"><span>⚠️</span><span>Enviando para correção de recarga</span></button>
         <button class="tab" data-target="sec7"><span>📧</span><span>Enviando para abertura de chamado N2</span></button>
@@ -57,7 +58,7 @@
         <select id="selectTab" aria-label="Selecionar seção"></select>
       </div>
       <div class="quick">
-        <div><strong>15</strong><span>seções</span></div>
+        <div><strong>17</strong><span>seções</span></div>
         <div><strong>43W</strong><span>Nova Parabólica</span></div>
         <div><strong>9</strong><span>modelos listados</span></div>
       </div>
@@ -161,6 +162,25 @@
             <p>Coloque o arquivo sem mudar o nome na raiz do pen drive.</p>
             <p>Com o aparelho desligado, coloque o pen drive (com o arquivo) e aperte a tecla CH+.</p>
             <p>Com a tecla CH+ apertada, ligue o aparelho e espere a tela branca escrita Vivensis aparecer, o aparelho irá atualizar e pronto, só usar novamente.</p>
+          </div>
+        </section>
+
+        <section class="panel" id="sec16">
+          <div class="panel-head"><div class="panel-icon">📍</div><div><h2>Regional x regionalizado</h2><p>Consulte as informações por estado e cidade, conforme a planilha.</p></div></div>
+          <div class="panel-body">
+            <div class="regional-consulta">
+              <div class="regional-fields">
+                <div class="regional-field"><label for="regionalUF">Estado (UF)</label><select id="regionalUF"><option value="">Selecione o estado</option></select></div>
+                <div class="regional-field"><label for="regionalCidade">Cidade</label><input id="regionalCidade" list="regionalSugestoes" placeholder="Digite o nome da cidade" autocomplete="off"><datalist id="regionalSugestoes"></datalist></div>
+                <button id="regionalConsultar" type="button">Consultar</button>
+              </div>
+              <p class="regional-hint">Selecione o estado, digite a cidade e clique em Consultar. Os resultados seguem os dados da planilha.</p>
+              <div class="regional-result" id="regionalResultado" aria-live="polite">
+                <div class="regional-result-head"><h3 id="regionalTituloResultado">Resultado da consulta</h3><span class="regional-badge" id="regionalQuantidade"></span></div>
+                <div class="regional-table-wrap"><table><thead><tr><th>Globo C/ Recarga</th><th>Globo S/ Recarga</th><th>SEAC e TVRO</th><th>SEAC e TVRO3</th><th>SEAC e TVRO4</th></tr></thead><tbody id="regionalDados"></tbody></table></div>
+              </div>
+              <div class="regional-empty" id="regionalNaoEncontrado" role="status">Não encontrei essa cidade nesse estado. Confira o nome e a UF e tente novamente.</div>
+            </div>
           </div>
         </section>
 
@@ -413,5 +433,7 @@
     </div>
   </div>
 <script src="script.js"></script>
+<script src="regional-data.js"></script>
+<script src="regional.js"></script>
 </body>
 </html>
