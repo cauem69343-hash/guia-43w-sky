@@ -291,6 +291,3 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 .regional-empty{display:none;padding:16px;margin-top:16px;background:rgba(255,106,0,.08);border:1px solid rgba(255,106,0,.3);color:inherit;border-radius:10px}
 .dark-theme .regional-field select,.dark-theme .regional-field input,.theme-dark .regional-field select,.theme-dark .regional-field input{background:#151219;border-color:#3b3045;color:#f5f5f5}
 @media(max-width:700px){.regional-fields{grid-template-columns:1fr}.regional-fields>button{width:100%}.regional-result-head{align-items:flex-start;flex-direction:column}.regional-table-wrap table{min-width:700px}}
-
-/* Prévia visual da categoria SUPER */
-.preview-status{display:inline-block;padding:7px 10px;border-radius:8px;background:#eef2f7;color:#475569;font-size:.82rem;font-weight:600}
