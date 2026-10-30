@@ -80,38 +80,62 @@
 <div class="receiver-card"><div class="receiver-brand">CENTURY</div><div class="receiver-art"><div class="receiver-device"><span class="receiver-mark">Century</span><span class="receiver-led"></span><span class="receiver-usb"></span></div></div><div class="receiver-name">Century Midiabox HDTV B7</div></div>
 <div class="receiver-card"><div class="receiver-brand">CENTURY</div><div class="receiver-art"><div class="receiver-device"><span class="receiver-mark">Century</span><span class="receiver-led"></span><span class="receiver-usb"></span></div></div><div class="receiver-name">Century Midiabox HDTV B8</div></div>
 </div></div></section>
-<section class="panel" id="sec2"><div class="panel-head"><div class="panel-icon">ℹ️</div><div><h2>Versão dos softwares dos equipamentos</h2><p>Procedimento e informações do guia</p></div></div><div class="panel-body"><p>Bedin (B9900s) – 0.0.6.3</p>
-<p>Elsys (Satmax 5) – V10.11.4.31</p>
-<p>Elsys (Satmax 6) – 5.0.0.70</p>
-<p>Vivensis (VX10) – V60 ou V61</p>
-<p>Vivensis (VX Smart) – C2.2.4</p>
-<p>Vivensis (VX Gamer/demais) – V3</p>
-<p>Century (Midiabox SE-2) – 3.41.01</p>
-<p>Century (Midiabox HDTV B7) – V4.11</p>
-<p>Century (Midiabox HDTV B8) – Versão única</p>
-<p></p>
-<p>Como validar a versão do software caso o</p>
-<p>antenista não saiba:</p>
-<p>BedinSAT:</p>
-<p>Menu → Ferramentas → Informações</p>
-<p>Elsys (Satmax 5):</p>
-<p>Menu → Configurações → Sistema → Informações</p>
-<p>Elsys (Satmax 6):</p>
-<p>Menu → Configurações → Informações → Informações do sistema</p>
-<p>Vivensis (VX10):</p>
-<p>Menu → Ajustes → Informações</p>
-<p>Vivensis (VX Smart):</p>
-<p>Configurações ⚙️ → Preferências do dispositivo</p>
-<p>→ Sobre → Versão</p>
-<p>Vivensis (VX Gamer/demais):</p>
-<p>Menu → Configurações → Informações</p>
-<p>Century (Midiabox SE-2):</p>
-<p>Menu → INFORMAÇÕES → INFORMAÇÕES → Versão S/W</p>
-<p>Century (Midiabox HDTV B7):</p>
-<p>Menu → INFORMAÇÕES</p>
-<p>Century (Midiabox HDTV B8)</p>
-<p>MENU → INFORMAÇÕES → INFORMAÇÃO → Versão do Software.</p>
-<p></p></div></section>
+<section class="panel" id="sec2"><div class="panel-head"><div class="panel-icon">ℹ️</div><div><h2>Versão dos softwares dos equipamentos</h2><p>Versões disponíveis, downloads e orientações de atualização</p></div></div><div class="panel-body">
+<style>
+.software-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:14px;margin:18px 0 28px}
+.software-card{border:1px solid #dbe5f1;border-radius:15px;background:#fff;overflow:hidden;box-shadow:0 5px 16px rgba(7,31,65,.06);display:flex;flex-direction:column}
+.software-card-top{padding:15px 16px;background:linear-gradient(120deg,#f2f8ff,#e8f4ff);border-bottom:1px solid #dbe5f1}
+.software-brand{font-size:10px;letter-spacing:1.4px;font-weight:900;color:#0876d1;text-transform:uppercase;margin-bottom:6px}
+.software-model{font-size:16px;font-weight:800;color:#092c59;line-height:1.35}
+.software-version{display:inline-block;margin-top:9px;background:#fff;border:1px solid #cfe4f8;color:#075da7;border-radius:999px;padding:5px 10px;font-size:12px;font-weight:800}
+.software-card-bottom{padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;flex:1}
+.software-card-bottom p{margin:0;font-size:12px;color:#66758a;line-height:1.45}
+.software-download{display:inline-flex;align-items:center;justify-content:center;gap:7px;background:#0876d1;color:#fff!important;padding:9px 12px;border-radius:9px;font-size:12px;font-weight:800;text-decoration:none!important;white-space:nowrap}
+.software-download:hover{background:#075da7}
+.software-unavailable{background:#fff7e8;border:1px solid #f3d49a;color:#8a5a08;border-radius:10px;padding:10px 12px;font-size:12px;font-weight:700;line-height:1.45}
+.software-subhead{margin:30px 0 12px;color:#092c59;font-size:19px}
+.software-note{background:#f3f9ff;border:1px solid #d7eafa;border-left:4px solid #0876d1;border-radius:10px;padding:15px 17px;margin:12px 0 22px}
+.software-note p{margin:7px 0;line-height:1.6}
+.software-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:10px;margin-top:14px}
+.software-step{padding:14px 15px;background:#fff;border:1px solid #dbe5f1;border-radius:12px}
+.software-step strong{display:block;color:#075da7;margin-bottom:7px;font-size:14px}
+.software-step span{display:block;color:#35445a;font-size:13px;line-height:1.55}
+@media(max-width:520px){.software-grid,.software-steps{grid-template-columns:1fr}.software-card-bottom{align-items:flex-start}}
+</style>
+<h3 class="software-subhead" style="margin-top:4px">📥 Versões e downloads</h3>
+<p>Selecione <strong>Baixar atualização</strong> no equipamento desejado. Os links abaixo direcionam aos arquivos disponibilizados pelos fabricantes.</p>
+<div class="software-grid">
+<div class="software-card"><div class="software-card-top"><div class="software-brand">Bedin SAT</div><div class="software-model">B9900s</div><span class="software-version">Versão 0.0.6.3</span></div><div class="software-card-bottom"><p>Arquivo de atualização via USB</p><a class="software-download" href="https://www.bedinsat.com.br/uploads/production_stage_4_allcode.abs" target="_blank" rel="noopener">⬇ Baixar atualização</a></div></div>
+<div class="software-card"><div class="software-card-top"><div class="software-brand">Elsys</div><div class="software-model">Satmax 5</div><span class="software-version">Versão V10.11.4.31</span></div><div class="software-card-bottom"><p>Arquivo de atualização</p><a class="software-download" href="https://elsys.com/wp-content/uploads/2024/01/NHS4940VM_appl_upgrade.hdcdf" target="_blank" rel="noopener">⬇ Baixar atualização</a></div></div>
+<div class="software-card"><div class="software-card-top"><div class="software-brand">Elsys</div><div class="software-model">Satmax 6</div><span class="software-version">Versão 5.0.0.70</span></div><div class="software-card-bottom"><p>Arquivo de atualização via USB</p><a class="software-download" href="https://elsys.com/wp-content/uploads/Satmax6/SKY%20B1/usb_update.bin" target="_blank" rel="noopener">⬇ Baixar atualização</a></div></div>
+<div class="software-card"><div class="software-card-top"><div class="software-brand">Vivensis</div><div class="software-model">VX10</div><span class="software-version">Versões V60 ou V61</span></div><div class="software-card-bottom"><p>Arquivo indicado para atualização</p><a class="software-download" href="https://www.vivensis.com.br/Software/SKY_VX20_240719_SVN4770_V60.udl" target="_blank" rel="noopener">⬇ Baixar atualização</a></div></div>
+<div class="software-card"><div class="software-card-top"><div class="software-brand">Vivensis</div><div class="software-model">VX Smart</div><span class="software-version">Versão C2.2.4</span></div><div class="software-card-bottom"><div class="software-unavailable">ℹ️ Não possui no site essa atualização para download.</div></div></div>
+<div class="software-card"><div class="software-card-top"><div class="software-brand">Vivensis</div><div class="software-model">VX Gamer / demais</div><span class="software-version">Versão V3</span></div><div class="software-card-bottom"><p>Arquivo indicado para atualização</p><a class="software-download" href="https://www.vivensis.com.br/Software/SKY_VX20PLUS_240719_SVN4783_V3.udl" target="_blank" rel="noopener">⬇ Baixar atualização</a></div></div>
+<div class="software-card"><div class="software-card-top"><div class="software-brand">Century</div><div class="software-model">Midiabox SE-2</div><span class="software-version">Versão 3.41.01</span></div><div class="software-card-bottom"><p>Arquivo de atualização via USB</p><a class="software-download" href="https://apisite.centurybr.com.br/files/productdownloads/file/320e98fd-82c1-4847-a7a8-a520b19d311b/flash_nagra_usb_upgrade.bin" target="_blank" rel="noopener">⬇ Baixar atualização</a></div></div>
+<div class="software-card"><div class="software-card-top"><div class="software-brand">Century</div><div class="software-model">Midiabox HDTV B7</div><span class="software-version">Versão V4.11</span></div><div class="software-card-bottom"><p>Arquivo de atualização</p><a class="software-download" href="https://apisite.centurybr.com.br/files/productdownloads/file/62cb4d33-ecec-4580-b7bf-1770c6cb3777/B7_20250407_v4.11.zip" target="_blank" rel="noopener">⬇ Baixar atualização</a></div></div>
+<div class="software-card"><div class="software-card-top"><div class="software-brand">Century</div><div class="software-model">Midiabox HDTV B8</div><span class="software-version">Versão única</span></div><div class="software-card-bottom"><p>Arquivo de atualização</p><a class="software-download" href="https://apisite.centurybr.com.br/files/productdownloads/file/f9ebbe27-1830-400c-88d0-13ed75e239f8/B8_20260629_update_enc_v1.5.0.b8" target="_blank" rel="noopener">⬇ Baixar atualização</a></div></div>
+</div>
+<h3 class="software-subhead">💾 Procedimentos de atualização via USB</h3>
+<div class="software-note">
+<p>O pen drive deve estar formatado e conter apenas o arquivo, na raiz do pen drive.</p>
+<p>Caso haja uma nova atualização, é necessário apagar o arquivo da versão anterior e baixar o novo arquivo.</p>
+<p>O arquivo deve ser copiado para o pen drive com o mesmo nome exato do arquivo baixado no site (não pode conter numerações entre parênteses).</p>
+<p>Se o arquivo estiver em uma pasta zipada, ele deve ser extraído.</p>
+<p><strong>Link do software:</strong> os links de download estão listados em cada equipamento acima.</p>
+</div>
+<h3 class="software-subhead">🔎 Como validar a versão do software caso o antenista não saiba</h3>
+<div class="software-steps">
+<div class="software-step"><strong>BedinSAT</strong><span>Menu → Ferramentas → Informações</span></div>
+<div class="software-step"><strong>Elsys (Satmax 5)</strong><span>Menu → Configurações → Sistema → Informações</span></div>
+<div class="software-step"><strong>Elsys (Satmax 6)</strong><span>Menu → Configurações → Informações → Informações do sistema</span></div>
+<div class="software-step"><strong>Vivensis (VX10)</strong><span>Menu → Ajustes → Informações</span></div>
+<div class="software-step"><strong>Vivensis (VX Smart)</strong><span>Configurações ⚙️ → Preferências do dispositivo → Sobre → Versão</span></div>
+<div class="software-step"><strong>Vivensis (VX Gamer/demais)</strong><span>Menu → Configurações → Informações</span></div>
+<div class="software-step"><strong>Century (Midiabox SE-2)</strong><span>Menu → INFORMAÇÕES → INFORMAÇÕES → Versão S/W</span></div>
+<div class="software-step"><strong>Century (Midiabox HDTV B7)</strong><span>Menu → INFORMAÇÕES</span></div>
+<div class="software-step"><strong>Century (Midiabox HDTV B8)</strong><span>MENU → INFORMAÇÕES → INFORMAÇÃO → Versão do Software.</span></div>
+</div>
+</div></section>
 <section class="panel" id="sec3"><div class="panel-head"><div class="panel-icon">🔄</div><div><h2>Recovery via OTA</h2><p>Procedimento e informações do guia</p></div></div><div class="panel-body"><ol>
 <li>1° PASSO:</li>
 </ol>
