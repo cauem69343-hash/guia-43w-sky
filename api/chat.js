@@ -21,17 +21,44 @@ REGRAS:
 module.exports = async function handler(req,res){
   res.setHeader('Cache-Control','no-store');
   if(req.method!=='POST'){res.setHeader('Allow','POST');return res.status(405).json({error:'Método não permitido.'});}
-  const token=process.env.AI_GATEWAY_API_KEY||process.env.VERCEL_OIDC_TOKEN;
-  if(!token)return res.status(503).json({error:'A assistente ainda não foi conectada ao serviço de IA. O administrador precisa habilitar a autenticação do AI Gateway na Vercel.'});
+
+  // Em Vercel Functions, o OIDC chega no header da requisição.
+  // VERCEL_OIDC_TOKEN fica como fallback para ambientes compatíveis.
+  const oidcHeader=req.headers?.['x-vercel-oidc-token'];
+  const token=process.env.AI_GATEWAY_API_KEY||oidcHeader||process.env.VERCEL_OIDC_TOKEN;
+  const authSource=process.env.AI_GATEWAY_API_KEY?'AI_GATEWAY_API_KEY':oidcHeader?'x-vercel-oidc-token':process.env.VERCEL_OIDC_TOKEN?'VERCEL_OIDC_TOKEN':'none';
+  if(!token){
+    console.error('Assistente 43W auth: nenhuma credencial encontrada',JSON.stringify({authSource,hasOidcHeader:!!oidcHeader,hasOidcEnv:!!process.env.VERCEL_OIDC_TOKEN,hasGatewayKey:!!process.env.AI_GATEWAY_API_KEY}));
+    return res.status(503).json({error:'A autenticação do serviço de IA não foi disponibilizada nesta execução. O administrador precisa verificar o OIDC nas configurações do projeto Vercel.'});
+  }
+
   const messages=Array.isArray(req.body?.messages)?req.body.messages.slice(-10):[];
   const safe=messages.filter(m=>['user','assistant'].includes(m.role)&&typeof m.content==='string').map(m=>({role:m.role,content:m.content.slice(0,2000)}));
   if(!safe.length||safe[safe.length-1].role!=='user')return res.status(400).json({error:'Envie uma mensagem para começar.'});
+
   try{
-    const upstream=await fetch('https://ai-gateway.vercel.sh/v1/chat/completions',{method:'POST',headers:{Authorization:'Bearer '+token,'Content-Type':'application/json'},body:JSON.stringify({model:'nvidia/nemotron-3.5-lightning-free',temperature:0.25,max_tokens:700,messages:[{role:'system',content:SYSTEM_PROMPT},...safe]})});
-    const data=await upstream.json();
-    if(!upstream.ok){console.error('AI Gateway error',upstream.status);return res.status(502).json({error:'O serviço de IA está temporariamente indisponível. Tente novamente em instantes.'});}
+    const upstream=await fetch('https://ai-gateway.vercel.sh/v1/chat/completions',{
+      method:'POST',
+      headers:{Authorization:'Bearer '+token,'Content-Type':'application/json'},
+      body:JSON.stringify({model:'nvidia/nemotron-3.5-lightning-free',temperature:0.25,max_tokens:700,messages:[{role:'system',content:SYSTEM_PROMPT},...safe]})
+    });
+    const raw=await upstream.text();
+    let data={};
+    try{data=raw?JSON.parse(raw):{};}catch(_){data={raw};}
+    if(!upstream.ok){
+      // Registra somente status e mensagem do provedor; nunca registra token nem headers.
+      const providerMessage=typeof data?.error?.message==='string'?data.error.message:typeof data?.message==='string'?data.message:'Resposta sem mensagem legível';
+      console.error('AI Gateway request failed',JSON.stringify({status:upstream.status,authSource,providerMessage:providerMessage.slice(0,1200),requestId:upstream.headers.get('x-request-id')||null}));
+      return res.status(502).json({error:'O AI Gateway recusou ou não conseguiu processar a solicitação (HTTP '+upstream.status+'). O administrador já pode consultar o motivo nos logs da Vercel.'});
+    }
     const reply=data.choices?.[0]?.message?.content;
-    if(typeof reply!=='string'||!reply.trim())throw new Error('Resposta vazia');
+    if(typeof reply!=='string'||!reply.trim()){
+      console.error('AI Gateway empty response',JSON.stringify({status:upstream.status,authSource,bodyPreview:raw.slice(0,500)}));
+      throw new Error('Resposta vazia do AI Gateway');
+    }
     return res.status(200).json({reply:reply.trim()});
-  }catch(error){console.error('Assistente 43W:',error.message);return res.status(502).json({error:'Não consegui concluir a resposta agora. Tente novamente em instantes.'});}
+  }catch(error){
+    console.error('Assistente 43W request exception',JSON.stringify({message:String(error?.message||error).slice(0,1000),authSource}));
+    return res.status(502).json({error:'Não consegui concluir a resposta agora. Tente novamente em instantes.'});
+  }
 };
