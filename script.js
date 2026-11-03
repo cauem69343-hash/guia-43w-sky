@@ -12,10 +12,11 @@ function activate(id){
 }
 tabs.forEach(t=>t.addEventListener('click',()=>activate(t.dataset.target)));
 
-panels.forEach((p,i)=>{
+panels.forEach(p=>{
+  const tab=tabs.find(t=>t.dataset.target===p.id);
   const opt=document.createElement('option');
   opt.value=p.id;
-  opt.textContent=tabs[i]?.innerText.replace(/^[^A-Za-zÀ-ÿ0-9]+/,'')||p.querySelector('h2').innerText;
+  opt.textContent=tab?.innerText.replace(/^[^A-Za-zÀ-ÿ0-9]+/,'')||p.querySelector('h2').innerText;
   select?.appendChild(opt);
 });
 select?.addEventListener('change',e=>activate(e.target.value));
@@ -29,6 +30,7 @@ function filter(){
     if(ok) shown++;
   });
   if(!q){
+    tabs.forEach(t=>t.style.display='flex');
     empty.style.display='none';
     activate(panels[0].id);
     return;

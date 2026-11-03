@@ -183,7 +183,61 @@
 <p>Com o aparelho desligado, coloque o pen drive (com o arquivo) e aperte a tecla CH+.</p>
 <p>Com a tecla CH+ apertada, ligue o aparelho e espere a tela branca escrita Vivensis aparecer, o aparelho irá atualizar e pronto, só usar novamente.</p>
 </div></section>
-<section class="panel" id="sec11"><div class="panel-head"><div class="panel-icon">🌎</div><div><h2>Regional X Regionalizado</h2><p>Informações e procedimentos</p></div></div><div class="panel-body"></div></section>
+<section class="panel" id="sec11">
+  <div class="panel-head">
+    <div class="panel-icon">🌎</div>
+    <div><h2>Regional X Regionalizado</h2><p>Consulte a regionalização de sinal por município</p></div>
+  </div>
+  <div class="panel-body">
+    <div class="regional-intro">
+      <p>Selecione o estado e informe o município para consultar as informações de regionalização disponíveis na base.</p>
+    </div>
+    <div class="regional-form">
+      <div class="regional-field">
+        <label for="regionalUF">Estado (UF)</label>
+        <select id="regionalUF">
+          <option value="">Selecione o estado</option>
+        </select>
+      </div>
+      <div class="regional-field">
+        <label for="regionalCidade">Município</label>
+        <input id="regionalCidade" type="text" list="regionalSugestoes" placeholder="Digite o nome do município" autocomplete="off" disabled>
+        <datalist id="regionalSugestoes"></datalist>
+      </div>
+      <button type="button" id="regionalConsultar" class="regional-button" disabled>Consultar</button>
+    </div>
+    <div id="regionalNaoEncontrado" class="regional-empty" role="status" aria-live="polite" style="display:none">
+      Município não encontrado. Confira o estado e o nome informado.
+    </div>
+    <div id="regionalResultado" class="regional-result" style="display:none">
+      <div class="regional-result-head">
+        <h3 id="regionalTituloResultado"></h3>
+        <span id="regionalQuantidade"></span>
+      </div>
+      <div class="regional-table-wrap">
+        <table class="regional-table">
+          <thead>
+            <tr>
+              <th rowspan="2">Regional / Regionalizado</th>
+              <th colspan="2">GLOBO</th>
+              <th>SBT</th>
+              <th>RECORD</th>
+              <th>BAND</th>
+            </tr>
+            <tr>
+              <th>Com recarga</th>
+              <th>Sem recarga</th>
+              <th>SEAC e TVRO</th>
+              <th>SEAC e TVRO</th>
+              <th>SEAC e TVRO</th>
+            </tr>
+          </thead>
+          <tbody id="regionalDados"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="panel" id="sec5"><div class="panel-head"><div class="panel-icon">💾</div><div><h2>Cenários prováveis</h2><p>Procedimento e informações do guia</p></div></div><div class="panel-body"><p>Troca teste da LNB:</p>
 <p>Quando já foi realizado todas as validações: validação de</p>
 <p>versão do software, taxas de sinais, já foi enviado comando e o receptor está</p>
@@ -318,6 +372,6 @@
     </main>
   </div>
 </div>
-<script src="script.js"></script>
+<script src="regional-data.js"></script>\n<script src="regional.js"></script>\n<script src="script.js"></script>
 </body>
 </html>

@@ -56,3 +56,25 @@ h1{margin:3px 0 5px;font-size:clamp(25px,4vw,40px)}
   h1{font-size:24px}.hero p{font-size:13px}.panel-head{padding:18px}.panel-body{padding:18px}
   .panel-head h2{font-size:18px}.panel-icon{width:44px;height:44px}
 }
+/* Consulta Regional x Regionalizado */
+.regional-intro{margin-bottom:18px}
+.regional-form{display:grid;grid-template-columns:minmax(150px,.8fr) minmax(220px,1.4fr) auto;gap:14px;align-items:end;padding:18px;background:#f5faff;border:1px solid #d7eafa;border-radius:14px}
+.regional-field{display:flex;flex-direction:column;gap:7px;min-width:0}
+.regional-field label{font-size:13px;font-weight:800;color:#123d76}
+.regional-field select,.regional-field input{width:100%;min-height:43px;padding:10px 12px;border:1px solid #cbd9e8;border-radius:9px;background:#fff;color:#17243a;outline:none}
+.regional-field select:focus,.regional-field input:focus{border-color:#0876d1;box-shadow:0 0 0 3px rgba(8,118,209,.12)}
+.regional-field input:disabled{background:#edf1f6;color:#8793a3;cursor:not-allowed}
+.regional-button{min-height:43px;padding:10px 20px;border:0;border-radius:9px;background:#0876d1;color:#fff;font-weight:800;cursor:pointer}
+.regional-button:hover:not(:disabled){background:#075da7}
+.regional-button:disabled{opacity:.5;cursor:not-allowed}
+.regional-empty{margin-top:16px;padding:14px 16px;border:1px solid #f0d5a3;border-radius:10px;background:#fff8eb;color:#80560c}
+.regional-result{margin-top:22px}
+.regional-result-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.regional-result-head h3{margin:0;color:#092c59;font-size:18px}
+.regional-result-head span{font-size:12px;color:#66758a}
+.regional-table-wrap{width:100%;overflow-x:auto;border:1px solid #dbe5f1;border-radius:12px}
+.regional-table{width:100%;min-width:760px;border-collapse:collapse;background:#fff;font-size:13px}
+.regional-table th{padding:12px 10px;background:#eaf4fd;color:#123d76;text-align:center;border:1px solid #d7e4f1;white-space:nowrap}
+.regional-table td{padding:14px 10px;border:1px solid #e2eaf2;text-align:center;color:#35445a;vertical-align:middle}
+.regional-table tbody tr:nth-child(even){background:#f8fbff}
+@media(max-width:700px){.regional-form{grid-template-columns:1fr}.regional-button{width:100%}.regional-result-head{align-items:flex-start;flex-direction:column}}
