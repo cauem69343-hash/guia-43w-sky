@@ -46,3 +46,39 @@ function filter(){
 }
 search.addEventListener('input',filter);
 activate(panels[0].id);
+
+/* Interações da aba Script de atendimento */
+const scNameInput=document.getElementById('sc-nome');
+if(scNameInput){
+  scNameInput.addEventListener('input',()=>{
+    const value=scNameInput.value.trim()||'[nome do atendente]';
+    document.querySelectorAll('#sec14 .sc-nm').forEach(el=>el.textContent=value);
+  });
+}
+document.querySelectorAll('#sec14 .sc-copy').forEach(button=>{
+  button.addEventListener('click',async()=>{
+    const card=button.closest('.sc-script');
+    const text=[...card.querySelectorAll('p')].map(p=>p.textContent.trim()).filter(Boolean).join('\n\n');
+    try{
+      if(navigator.clipboard&&window.isSecureContext){
+        await navigator.clipboard.writeText(text);
+      }else{
+        const area=document.createElement('textarea');
+        area.value=text;
+        area.style.position='fixed';
+        area.style.opacity='0';
+        document.body.appendChild(area);
+        area.select();
+        const copied=document.execCommand('copy');
+        area.remove();
+        if(!copied) throw new Error('Falha ao copiar');
+      }
+      button.textContent='✓ Copiado!';
+      button.classList.add('ok');
+      setTimeout(()=>{button.textContent='Copiar';button.classList.remove('ok');},1800);
+    }catch(error){
+      button.textContent='Selecione e copie (Ctrl+C)';
+      setTimeout(()=>{button.textContent='Copiar';},2500);
+    }
+  });
+});
