@@ -160,3 +160,11 @@ h1{margin:3px 0 5px;font-size:clamp(25px,4vw,40px)}
 .sc-footer{text-align:center;color:#5b6578;font-size:13px;margin:28px 0 8px}
 .sc-footer b{color:#0f2e57}
 @media(max-width:560px){.sc-header h2{font-size:23px}.sc-section{padding:14px}.sc-table{font-size:13px}.sc-table th,.sc-table td{padding:7px}}
+
+/* Botões para copiar procedimentos de ativação */
+.activation-label{flex-wrap:wrap}
+.activation-label-text{flex:1;min-width:150px}
+.activation-copy{margin-left:auto;border:0;border-radius:8px;background:#0876d1;color:#fff;padding:9px 12px;font:700 12px inherit;font-family:inherit;cursor:pointer;white-space:nowrap;transition:background .2s}
+.activation-copy:hover{background:#075da7}
+.activation-copy.ok{background:#16834a}
+@media(max-width:600px){.activation-copy{margin-left:44px;width:calc(100% - 44px);text-align:center}}
