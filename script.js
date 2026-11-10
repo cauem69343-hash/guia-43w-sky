@@ -83,34 +83,4 @@ document.querySelectorAll('#sec14 .sc-copy').forEach(button=>{
   });
 });
 
-/* Copiar passo a passo dos procedimentos de ativação */
-document.querySelectorAll('#sec8 .activation-copy').forEach(button=>{
-  button.addEventListener('click',async()=>{
-    const block=button.closest('.activation-block');
-    const heading=block.querySelector('.activation-label strong')?.textContent.trim()||'Procedimento de ativação';
-    const intro=block.querySelector('.activation-instruction')?.innerText.trim();
-    const steps=[...block.querySelectorAll('.activation-steps li')].map((li,i)=>`${i+1}. ${li.innerText.trim()}`);
-    const content=[heading,intro,...steps].filter(Boolean).join('\\n\\n');
-    try{
-      if(navigator.clipboard&&window.isSecureContext){
-        await navigator.clipboard.writeText(content);
-      }else{
-        const area=document.createElement('textarea');
-        area.value=content;
-        area.style.position='fixed';
-        area.style.opacity='0';
-        document.body.appendChild(area);
-        area.select();
-        const copied=document.execCommand('copy');
-        area.remove();
-        if(!copied) throw new Error('Falha ao copiar');
-      }
-      button.textContent='✓ Copiado!';
-      button.classList.add('ok');
-      setTimeout(()=>{button.textContent='📋 Copiar passo a passo';button.classList.remove('ok');},1800);
-    }catch(error){
-      button.textContent='Não foi possível copiar';
-      setTimeout(()=>{button.textContent='📋 Copiar passo a passo';},2200);
-    }
-  });
-});
+
