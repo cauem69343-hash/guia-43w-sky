@@ -630,11 +630,26 @@
     <div><h2>Gestão N2</h2><p>Acesso integrado ao sistema de Gestão N2</p></div>
   </div>
   <div class="panel-body gestao-n2-body">
+    <div class="gestao-n2-lock" id="gestaoN2Lock">
+      <div class="gestao-n2-lock-icon">🔒</div>
+      <h3>Acesso protegido</h3>
+      <p>Digite a senha para acessar a Gestão N2.</p>
+      <form id="gestaoN2PasswordForm">
+        <label for="gestaoN2Password">Senha de acesso</label>
+        <div class="gestao-n2-password-row">
+          <input id="gestaoN2Password" type="password" inputmode="numeric" autocomplete="off" placeholder="Digite a senha" required>
+          <button type="submit">Acessar</button>
+        </div>
+        <p class="gestao-n2-error" id="gestaoN2PasswordError" role="alert" aria-live="polite"></p>
+      </form>
+    </div>
+    <div class="gestao-n2-protected" id="gestaoN2Protected" hidden>
     <div class="gestao-n2-toolbar">
       <span>Ferramenta externa integrada ao Guia 43W</span>
       <a href="https://script.google.com/macros/s/AKfycbwjx-BIBjKLbAPZiHgwBXX_o8hKFbwvU6w1c6ETCtDMLCngnU5zTJ4_M4nRDvR1acpY/exec" target="_blank" rel="noopener noreferrer">Abrir em nova guia ↗</a>
     </div>
     <iframe class="gestao-n2-frame" title="Gestão N2" src="https://script.google.com/macros/s/AKfycbwjx-BIBjKLbAPZiHgwBXX_o8hKFbwvU6w1c6ETCtDMLCngnU5zTJ4_M4nRDvR1acpY/exec" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="clipboard-read; clipboard-write; fullscreen" allowfullscreen></iframe>
+    </div>
   </div>
 </section>
 </div>
