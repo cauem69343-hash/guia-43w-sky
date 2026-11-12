@@ -83,4 +83,27 @@ document.querySelectorAll('#sec14 .sc-copy').forEach(button=>{
   });
 });
 
+/* Proteção visual da aba Gestão N2 */
+const gestaoN2Form = document.getElementById('gestaoN2PasswordForm');
+const gestaoN2Lock = document.getElementById('gestaoN2Lock');
+const gestaoN2Protected = document.getElementById('gestaoN2Protected');
+const gestaoN2Password = document.getElementById('gestaoN2Password');
+const gestaoN2PasswordError = document.getElementById('gestaoN2PasswordError');
+const gestaoN2SessionKey = 'guia43w_gestao_n2_unlocked';
 
+function unlockGestaoN2(){
+  if(gestaoN2Lock) gestaoN2Lock.hidden = true;
+  if(gestaoN2Protected) gestaoN2Protected.hidden = false;
+}
+if(sessionStorage.getItem(gestaoN2SessionKey)==='1') unlockGestaoN2();
+gestaoN2Form?.addEventListener('submit',event=>{
+  event.preventDefault();
+  if(gestaoN2Password?.value==='1597'){
+    sessionStorage.setItem(gestaoN2SessionKey,'1');
+    if(gestaoN2PasswordError) gestaoN2PasswordError.textContent='';
+    unlockGestaoN2();
+  }else{
+    if(gestaoN2PasswordError) gestaoN2PasswordError.textContent='Senha incorreta. Tente novamente.';
+    gestaoN2Password?.select();
+  }
+});
