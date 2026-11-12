@@ -164,3 +164,11 @@ h1{margin:3px 0 5px;font-size:clamp(25px,4vw,40px)}
 @media(max-width:560px){.sc-header h2{font-size:23px}.sc-section{padding:14px}.sc-table{font-size:13px}.sc-table th,.sc-table td{padding:7px}}
 
 
+
+/* Aba Gestão N2 integrada */
+.gestao-n2-body{padding:16px 18px 20px}
+.gestao-n2-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px;color:var(--muted);font-size:12px;font-weight:700}
+.gestao-n2-toolbar a{display:inline-flex;align-items:center;padding:9px 13px;border-radius:9px;background:#eaf4fd;color:#075da7;text-decoration:none;font-weight:800}
+.gestao-n2-toolbar a:hover{background:#dceeff;text-decoration:none}
+.gestao-n2-frame{display:block;width:100%;height:calc(100vh - 245px);min-height:680px;border:1px solid var(--line);border-radius:12px;background:#fff}
+@media(max-width:600px){.gestao-n2-body{padding:12px}.gestao-n2-frame{height:calc(100vh - 260px);min-height:620px}}
