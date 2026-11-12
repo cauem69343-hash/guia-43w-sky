@@ -172,3 +172,19 @@ h1{margin:3px 0 5px;font-size:clamp(25px,4vw,40px)}
 .gestao-n2-toolbar a:hover{background:#dceeff;text-decoration:none}
 .gestao-n2-frame{display:block;width:100%;height:calc(100vh - 245px);min-height:680px;border:1px solid var(--line);border-radius:12px;background:#fff}
 @media(max-width:600px){.gestao-n2-body{padding:12px}.gestao-n2-frame{height:calc(100vh - 260px);min-height:620px}}
+
+/* Tela de senha da aba Gestão N2 */
+.gestao-n2-lock{max-width:440px;margin:38px auto;padding:30px 26px;text-align:center;background:#f7fbff;border:1px solid #d7e8f8;border-radius:16px;box-shadow:0 8px 24px rgba(7,31,65,.07)}
+.gestao-n2-lock[hidden],.gestao-n2-protected[hidden]{display:none!important}
+.gestao-n2-lock-icon{width:58px;height:58px;margin:0 auto 12px;display:grid;place-items:center;background:#e7f3ff;border-radius:16px;font-size:27px}
+.gestao-n2-lock h3{margin:0 0 7px;color:#092c59;font-size:21px}
+.gestao-n2-lock>p{margin:0 0 20px;color:#66758a;font-size:14px}
+.gestao-n2-lock form{text-align:left}
+.gestao-n2-lock label{display:block;margin-bottom:7px;color:#123d76;font-size:13px;font-weight:800}
+.gestao-n2-password-row{display:flex;gap:8px}
+.gestao-n2-password-row input{flex:1;min-width:0;padding:12px;border:1px solid #cbd9e8;border-radius:9px;background:#fff;outline:none}
+.gestao-n2-password-row input:focus{border-color:#0876d1;box-shadow:0 0 0 3px rgba(8,118,209,.12)}
+.gestao-n2-password-row button{padding:11px 17px;border:0;border-radius:9px;background:#0876d1;color:#fff;font-weight:800;cursor:pointer}
+.gestao-n2-password-row button:hover{background:#075da7}
+.gestao-n2-error{min-height:18px;margin:8px 0 0!important;color:#c62828!important;font-size:12px!important}
+@media(max-width:480px){.gestao-n2-lock{margin:20px auto;padding:24px 17px}.gestao-n2-password-row{flex-direction:column}.gestao-n2-password-row button{width:100%}}
