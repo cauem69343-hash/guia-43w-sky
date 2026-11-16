@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#8f1025">
 <title>Guia de Procedimentos • Nova Parabólica 43W</title>
+<script>try{if(localStorage.getItem("guia43w_theme")==="dark")document.documentElement.dataset.theme="dark"}catch(e){}</script>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,7 +19,13 @@
         <p>Consulta rápida para atendimento e suporte • SKY 43W</p>
       </div>
     </div>
-    <div class="hero-badge">SUPORTE 43W</div>
+    <div class="hero-actions">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Ativar tema escuro" aria-pressed="false">
+        <span class="theme-toggle-icon" id="themeToggleIcon" aria-hidden="true">🌙</span>
+        <span id="themeToggleLabel">Modo escuro</span>
+      </button>
+      <div class="hero-badge">SUPORTE 43W</div>
+    </div>
   </header>
 
   <div class="layout">
