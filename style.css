@@ -395,3 +395,235 @@ body{
   #sec13 .activation-steps li::before{flex-basis:29px;width:29px;height:29px}
   #sec13 .activation-copy{padding:7px 11px}
 }
+
+
+/* Seletor de tema claro/escuro */
+.hero-actions{position:relative;z-index:2;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:40px;padding:9px 14px;border:1px solid rgba(255,255,255,.48);border-radius:999px;background:rgba(255,255,255,.13);color:#fff;font-size:12px;font-weight:800;letter-spacing:.2px;cursor:pointer;backdrop-filter:blur(8px);transition:background .2s,border-color .2s,transform .2s}
+.theme-toggle:hover{background:rgba(255,255,255,.23);border-color:rgba(255,255,255,.8);transform:translateY(-1px)}
+.theme-toggle:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.theme-toggle-icon{font-size:16px;line-height:1}
+@media(max-width:600px){.hero{align-items:flex-start;flex-direction:column}.hero-actions{width:100%;justify-content:flex-start}.theme-toggle{min-height:38px}}
+
+/* Paleta escura — preserva o vermelho SKY como cor de destaque */
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --navy:#f08a99;
+  --blue:#ef526b;
+  --cyan:#ff899a;
+  --sky:#f45c73;
+  --bg:#11151d;
+  --card:#1b222d;
+  --text:#e9edf4;
+  --muted:#aab4c3;
+  --line:#343e4d;
+  --shadow:0 14px 38px rgba(0,0,0,.28);
+}
+html[data-theme="dark"] body{
+  background:radial-gradient(ellipse at 8% 0%,rgba(200,16,46,.10),transparent 32%),#11151d!important;
+  color:#e9edf4!important;
+}
+html[data-theme="dark"] .sidebar{
+  background:#171d27!important;
+  border-right-color:#303a49!important;
+  box-shadow:8px 0 28px rgba(0,0,0,.18)!important;
+}
+html[data-theme="dark"] .side-title{color:#c18e99!important}
+html[data-theme="dark"] .search-wrap input,
+html[data-theme="dark"] .mobile-tabs select,
+html[data-theme="dark"] .regional-field select,
+html[data-theme="dark"] .regional-field input,
+html[data-theme="dark"] .sc-name-box input,
+html[data-theme="dark"] .gestao-n2-password-row input,
+html[data-theme="dark"] input,
+html[data-theme="dark"] select,
+html[data-theme="dark"] textarea{
+  background:#111823!important;
+  color:#e9edf4!important;
+  border-color:#3a4657!important;
+}
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder{color:#8793a4!important}
+html[data-theme="dark"] .tab{color:#c1c9d5!important}
+html[data-theme="dark"] .tab:hover{background:#2b2028!important;border-color:#4b3039!important;color:#ff9aaa!important}
+html[data-theme="dark"] .tab.active{
+  background:linear-gradient(100deg,#3b2029,#2b2028)!important;
+  border-color:#63313d!important;
+  color:#ff9aaa!important;
+  box-shadow:inset 3px 0 #e33a56,0 4px 12px rgba(0,0,0,.16)!important;
+}
+html[data-theme="dark"] .quick div{
+  background:#1b222d!important;
+  border-color:#343e4d!important;
+  box-shadow:0 6px 20px rgba(0,0,0,.18)!important;
+}
+html[data-theme="dark"] .quick strong{color:#ff8293!important}
+html[data-theme="dark"] .quick span{color:#aab4c3!important}
+html[data-theme="dark"] .panel{
+  background:#1b222d!important;
+  border-color:#343e4d!important;
+  box-shadow:0 12px 34px rgba(0,0,0,.22)!important;
+}
+html[data-theme="dark"] .panel-head{
+  background:linear-gradient(105deg,#202834,#29212a)!important;
+  border-bottom-color:#394351!important;
+}
+html[data-theme="dark"] .panel-head h2,
+html[data-theme="dark"] .panel-body h3,
+html[data-theme="dark"] .software-model,
+html[data-theme="dark"] .software-subhead{color:#ff9aaa!important}
+html[data-theme="dark"] .panel-head p,
+html[data-theme="dark"] .panel-body p,
+html[data-theme="dark"] .panel-body li{color:#d0d7e2}
+html[data-theme="dark"] .panel-icon{
+  background:linear-gradient(145deg,#33232b,#252a35)!important;
+  border-color:#5c3540!important;
+}
+html[data-theme="dark"] .empty{background:#1b222d!important;color:#d0d7e2!important;border-color:#343e4d!important}
+html[data-theme="dark"] .step{
+  background:linear-gradient(100deg,#30222a,#242832)!important;
+  border-left-color:#e34a63!important;
+  color:#e9edf4!important;
+}
+html[data-theme="dark"] .panel-body a{color:#ff91a1!important}
+html[data-theme="dark"] .regional-intro,
+html[data-theme="dark"] .regional-form,
+html[data-theme="dark"] .activation-intro{
+  background:linear-gradient(110deg,#2d222a,#222934)!important;
+  border-color:#503440!important;
+  color:#e5eaf1!important;
+}
+html[data-theme="dark"] .regional-field label,
+html[data-theme="dark"] .regional-result-head h3,
+html[data-theme="dark"] .activation-label strong,
+html[data-theme="dark"] .activation-card-head h3,
+html[data-theme="dark"] .activation-instruction strong{color:#ff9aaa!important}
+html[data-theme="dark"] .regional-result,
+html[data-theme="dark"] .activation-card,
+html[data-theme="dark"] .activation-block{
+  background:#1b222d!important;
+  border-color:#343e4d!important;
+}
+html[data-theme="dark"] .activation-card-head{border-bottom-color:#343e4d!important}
+html[data-theme="dark"] .activation-icon{
+  background:#30232b!important;
+  border-color:#60404a!important;
+}
+html[data-theme="dark"] .activation-steps li{
+  background:#1b222d!important;
+  color:#dce3ec!important;
+  border-color:#3a4554!important;
+}
+html[data-theme="dark"] .activation-steps li strong{color:#ff9aaa!important}
+html[data-theme="dark"] .activation-steps li::before{
+  background:#38232c!important;
+  border-color:#693947!important;
+  color:#ff9aaa!important;
+}
+html[data-theme="dark"] .activation-notice,
+html[data-theme="dark"] .regional-empty,
+html[data-theme="dark"] .software-note,
+html[data-theme="dark"] .software-unavailable,
+html[data-theme="dark"] .sc-note{
+  background:#30242b!important;
+  border-color:#65404b!important;
+  color:#eadde1!important;
+}
+html[data-theme="dark"] .regional-table,
+html[data-theme="dark"] .tp-table,
+html[data-theme="dark"] .sc-table,
+html[data-theme="dark"] table{color:#e3e9f1!important;border-color:#3b4655!important}
+html[data-theme="dark"] .regional-table th,
+html[data-theme="dark"] .tp-table th,
+html[data-theme="dark"] .sc-table th,
+html[data-theme="dark"] table th{
+  background:#30232b!important;
+  color:#ff9aaa!important;
+  border-color:#3b4655!important;
+}
+html[data-theme="dark"] .regional-table td,
+html[data-theme="dark"] .tp-table td,
+html[data-theme="dark"] .sc-table td,
+html[data-theme="dark"] table td{background:#1b222d!important;color:#dce3ec!important;border-color:#3b4655!important}
+html[data-theme="dark"] .regional-table tbody tr:nth-child(even),
+html[data-theme="dark"] .tp-table tbody tr:nth-child(even){background:#202834!important}
+html[data-theme="dark"] .sc-wrap{background:#171d27!important;color:#e9edf4!important}
+html[data-theme="dark"] .sc-header{
+  background:linear-gradient(120deg,#30212a,#202834)!important;
+  border-color:#4a3440!important;
+}
+html[data-theme="dark"] .sc-header h2,
+html[data-theme="dark"] .sc-section h3,
+html[data-theme="dark"] .sc-brand{color:#ff9aaa!important}
+html[data-theme="dark"] .sc-header p,
+html[data-theme="dark"] .sc-obj,
+html[data-theme="dark"] .sc-script p,
+html[data-theme="dark"] .sc-rec li{color:#d5dce6!important}
+html[data-theme="dark"] .sc-tools,
+html[data-theme="dark"] .sc-section,
+html[data-theme="dark"] .sc-script{
+  background:#1b222d!important;
+  border-color:#374252!important;
+  color:#e3e9f1!important;
+}
+html[data-theme="dark"] .sc-nav a{
+  background:#2a222b!important;
+  border-color:#4a3540!important;
+  color:#ff9aaa!important;
+}
+html[data-theme="dark"] .sc-nav a:hover{background:#3a2630!important}
+html[data-theme="dark"] .sc-section h3 span,
+html[data-theme="dark"] .sc-tag,
+html[data-theme="dark"] .sc-lbl{
+  background:#38232c!important;
+  border-color:#633744!important;
+  color:#ff9aaa!important;
+}
+html[data-theme="dark"] .sc-footer{border-top-color:#374252!important;color:#aab4c3!important}
+html[data-theme="dark"] .sc-copy,
+html[data-theme="dark"] .regional-button,
+html[data-theme="dark"] .gestao-n2-password-row button{
+  color:#fff!important;
+}
+html[data-theme="dark"] .sc-copy:hover{background:#a91630!important}
+html[data-theme="dark"] .gestao-n2-toolbar{background:#202834!important;color:#dce3ec!important}
+html[data-theme="dark"] .gestao-n2-lock{
+  background:linear-gradient(145deg,#202834,#2b222a)!important;
+  border-color:#4b3540!important;
+  color:#e9edf4!important;
+  box-shadow:0 12px 34px rgba(0,0,0,.22)!important;
+}
+html[data-theme="dark"] .gestao-n2-lock h3{color:#ff9aaa!important}
+html[data-theme="dark"] .gestao-n2-lock>p,
+html[data-theme="dark"] .gestao-n2-lock label{color:#cbd4df!important}
+html[data-theme="dark"] .gestao-n2-lock-icon{background:#38232c!important;border-color:#633744!important}
+html[data-theme="dark"] .receiver-card,
+html[data-theme="dark"] .software-card,
+html[data-theme="dark"] .software-step{
+  background:#1b222d!important;
+  border-color:#3a4554!important;
+  color:#e3e9f1!important;
+}
+html[data-theme="dark"] .receiver-brand,
+html[data-theme="dark"] .software-card-top{
+  background:linear-gradient(120deg,#30232b,#252b36)!important;
+  border-color:#3a4554!important;
+}
+html[data-theme="dark"] .receiver-art{background:linear-gradient(180deg,#242c37,#1b222d)!important}
+html[data-theme="dark"] .receiver-name,
+html[data-theme="dark"] .receiver-name small,
+html[data-theme="dark"] .software-card-bottom p,
+html[data-theme="dark"] .software-step span{color:#d0d7e2!important}
+html[data-theme="dark"] .software-version{background:#30232b!important;border-color:#60404a!important;color:#ff9aaa!important}
+html[data-theme="dark"] .software-download{color:#fff!important}
+html[data-theme="dark"] .tp-manual-image{border-color:#3a4554!important}
+html[data-theme="dark"] .activation-copy{
+  background:#30232b!important;
+  border-color:#69404c!important;
+  color:#ff9aaa!important;
+}
+html[data-theme="dark"] .activation-copy:hover{background:#432832!important}
+html[data-theme="dark"] .activation-copy.copied{background:#21834b!important;color:#fff!important}
+@media(prefers-reduced-motion:no-preference){
+  .theme-toggle{transition:background .2s,border-color .2s,transform .2s}
+}
