@@ -182,6 +182,44 @@ document.querySelectorAll('#sec8 .activation-block').forEach(block=>{
   });
 });
 
+/* Copiar passo a passo da mudança de satélite para o B1 */
+const satellitePanel=document.querySelector('#sec13');
+const satelliteSteps=satellitePanel?.querySelector('.activation-steps');
+const satelliteHeader=satellitePanel?.querySelector('.activation-card-head');
+if(satellitePanel && satelliteSteps && satelliteHeader){
+  const button=document.createElement('button');
+  button.type='button';
+  button.className='activation-copy';
+  button.textContent='Copiar';
+  button.setAttribute('aria-label','Copiar passo a passo da mudança de satélite para o B1');
+  satelliteHeader.appendChild(button);
+  button.addEventListener('click',async()=>{
+    const items=[...satelliteSteps.querySelectorAll('li')].map((item,index)=>String(index+1).padStart(2,'0')+'. '+item.innerText.trim().replace(/\\s+/g,' '));
+    const text=items.join('\\n\\n');
+    try{
+      if(navigator.clipboard && window.isSecureContext){
+        await navigator.clipboard.writeText(text);
+      }else{
+        const area=document.createElement('textarea');
+        area.value=text;
+        area.style.position='fixed';
+        area.style.opacity='0';
+        document.body.appendChild(area);
+        area.select();
+        const copied=document.execCommand('copy');
+        area.remove();
+        if(!copied) throw new Error('Falha ao copiar');
+      }
+      button.textContent='✓ Copiado!';
+      button.classList.add('copied');
+      setTimeout(()=>{button.textContent='Copiar';button.classList.remove('copied');},1800);
+    }catch(error){
+      button.textContent='Não foi possível copiar';
+      setTimeout(()=>{button.textContent='Copiar';},2200);
+    }
+  });
+}
+
 /* Copiar procedimento de recarga pelo CHAT */
 const rechargePanel=document.querySelector('#sec10');
 const rechargeHeader=rechargePanel?.querySelector('.panel-head');
