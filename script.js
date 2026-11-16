@@ -193,10 +193,8 @@ if(rechargePanel && rechargeHeader && rechargeBody){
   button.textContent='Copiar';
   rechargeHeader.appendChild(button);
   button.addEventListener('click',async()=>{
-    const raw=[...rechargeBody.querySelectorAll('p')].map(p=>p.innerText.trim()).filter(Boolean).join(' ');
-    const items=raw.split('→').map(step=>step.trim()).filter(Boolean);
-    const formatted=items.map((step,index)=>String(index+1).padStart(2,'0')+'. '+step.replace(/\s+/g,' '));
-    const text=formatted.join('\n\n');
+    const items=[...rechargeBody.querySelectorAll('p')].map(p=>p.innerText.trim()).filter(Boolean);
+    const text=items.join('\n\n');
     try{
       await navigator.clipboard.writeText(text);
       button.textContent='✓ Copiado!';
