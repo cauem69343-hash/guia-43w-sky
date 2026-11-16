@@ -369,3 +369,87 @@ body{
 @media(max-width:480px){
   #sec9 .activation-copy{padding:7px 11px}
 }
+
+
+/* Aba Mudança de satélite para o B1 — etapas em blocos separados */
+#sec13 .activation-card:first-of-type .activation-block{
+  padding:20px;
+  background:linear-gradient(180deg,#fff,#fffdfd);
+}
+#sec13 .activation-steps{
+  list-style:none;
+  counter-reset:b1-step;
+  display:grid;
+  gap:12px;
+  margin:0;
+  padding:0;
+}
+#sec13 .activation-steps li{
+  counter-increment:b1-step;
+  position:relative;
+  display:block;
+  min-height:54px;
+  padding:15px 17px 15px 62px;
+  border:1px solid #f0dce0;
+  border-radius:12px;
+  background:linear-gradient(105deg,#fff8f9,#fff);
+  color:#40343a;
+  line-height:1.65;
+  box-shadow:0 3px 10px rgba(91,7,24,.035);
+  transition:border-color .18s,transform .18s,box-shadow .18s;
+}
+#sec13 .activation-steps li::before{
+  content:counter(b1-step,decimal-leading-zero);
+  position:absolute;
+  left:16px;
+  top:14px;
+  display:grid;
+  place-items:center;
+  width:32px;
+  height:32px;
+  border-radius:10px;
+  background:linear-gradient(145deg,#ffe6eb,#fff1f3);
+  border:1px solid #f1cbd3;
+  color:#a3122a;
+  font-size:12px;
+  font-weight:900;
+}
+#sec13 .activation-steps li::marker{content:""}
+#sec13 .activation-steps li:hover{
+  border-color:#e6b9c2;
+  box-shadow:0 6px 16px rgba(91,7,24,.065);
+  transform:translateY(-1px);
+}
+#sec13 .activation-card-head{
+  flex-wrap:wrap;
+}
+#sec13 .activation-copy{
+  flex:0 0 auto;
+  margin-left:auto;
+  padding:8px 15px;
+  border:1px solid #efc4cc;
+  border-radius:9px;
+  background:linear-gradient(110deg,#fff,#fff1f3);
+  color:#a3122a;
+  font:800 12px inherit;
+  font-family:inherit;
+  cursor:pointer;
+  transition:background .18s,border-color .18s,transform .18s;
+}
+#sec13 .activation-copy:hover{
+  background:#ffe5e9;
+  border-color:#d98b99;
+  transform:translateY(-1px);
+}
+#sec13 .activation-copy.copied{
+  color:#fff;
+  background:#21834b;
+  border-color:#21834b;
+}
+@media(max-width:600px){
+  #sec13 .activation-card:first-of-type .activation-block{padding:13px}
+  #sec13 .activation-steps{gap:9px}
+  #sec13 .activation-steps li{padding:13px 12px 13px 54px;font-size:14px}
+  #sec13 .activation-steps li::before{left:11px;top:12px;width:30px;height:30px}
+  #sec13 .activation-copy{padding:7px 11px}
+}
