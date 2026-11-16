@@ -194,8 +194,8 @@ if(satellitePanel && satelliteSteps && satelliteHeader){
   button.setAttribute('aria-label','Copiar passo a passo da mudança de satélite para o B1');
   satelliteHeader.appendChild(button);
   button.addEventListener('click',async()=>{
-    const items=[...satelliteSteps.querySelectorAll('li')].map((item,index)=>String(index+1).padStart(2,'0')+'. '+item.innerText.trim().replace(/\\s+/g,' '));
-    const text=items.join('\\n\\n');
+    const items=[...satelliteSteps.querySelectorAll('li')].map((item,index)=>String(index+1).padStart(2,'0')+'. '+item.innerText.trim().replace(/\s+/g,' '));
+    const text=items.join('\n');
     try{
       if(navigator.clipboard && window.isSecureContext){
         await navigator.clipboard.writeText(text);
