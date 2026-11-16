@@ -162,3 +162,29 @@ document.querySelectorAll('#sec9 .activation-block').forEach(block=>{
     }
   });
 });
+
+/* Copiar procedimentos da aba Ativação do receptor */
+document.querySelectorAll('#sec8 .activation-block').forEach(block=>{
+  const steps=block.querySelector('.activation-steps');
+  const label=block.querySelector('.activation-label');
+  if(!steps || !label) return;
+  const button=document.createElement('button');
+  button.type='button';
+  button.className='activation-copy';
+  button.textContent='Copiar';
+  label.appendChild(button);
+  button.addEventListener('click',async()=>{
+    const card=block.closest('.activation-card');
+    const title=card?.querySelector('.activation-card-head h3')?.innerText.trim() || 'Ativação do receptor';
+    const heading=label.querySelector('strong')?.innerText.trim() || 'Passo a passo';
+    const subtitle=label.querySelector('small')?.innerText.trim() || '';
+    const items=[...steps.querySelectorAll('li')].map((item,index)=>String(index+1).padStart(2,'0')+'. '+item.innerText.trim().replace(/\s+/g,' '));
+    const text=['NOVA PARABÓLICA SKY | 43W',title.toUpperCase(),heading.toUpperCase(),subtitle,'',items.join('\n\n')].join('\n');
+    try{
+      await navigator.clipboard.writeText(text);
+      button.textContent='✓ Copiado!';
+      button.classList.add('copied');
+      setTimeout(()=>{button.textContent='Copiar';button.classList.remove('copied');},1800);
+    }catch(error){button.textContent='Não foi possível copiar';}
+  });
+});
