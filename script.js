@@ -108,7 +108,6 @@ gestaoN2Form?.addEventListener('submit',event=>{
   }
 });
 
-
 /* Botões para copiar cada passo a passo da aba Reforço de sinal */
 document.querySelectorAll('#sec9 .activation-block').forEach(block=>{
   const steps=block.querySelector('.activation-steps');
@@ -128,8 +127,8 @@ document.querySelectorAll('#sec9 .activation-block').forEach(block=>{
     const stepTitle=label.querySelector('strong')?.innerText.trim() || 'Passo a passo';
     const subtitle=label.querySelector('small')?.innerText.trim() || '';
     const items=[...steps.querySelectorAll('li')].map((item,index)=>{
-      const content=item.innerText.trim().replace(/\\s+/g,' ');
-      return `${String(index+1).padStart(2,'0')}  ${content}`;
+      const content=item.innerText.trim().replace(/\s+/g,' ');
+      return `${String(index+1).padStart(2,'0')}. ${content}`;
     });
     const text=[
       'NOVA PARABÓLICA SKY | 43W',
@@ -137,10 +136,10 @@ document.querySelectorAll('#sec9 .activation-block').forEach(block=>{
       stepTitle.toUpperCase(),
       subtitle,
       '',
-      items.join('\\n\\n'),
+      items.join('\n\n'),
       '',
       '— Guia 43W | Procedimento de suporte'
-    ].filter((line,index)=>line!=='' || (index>0 && index<items.length+4)).join('\\n');
+    ].join('\n');
     try{
       if(navigator.clipboard && window.isSecureContext){
         await navigator.clipboard.writeText(text);
