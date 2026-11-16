@@ -107,3 +107,46 @@ gestaoN2Form?.addEventListener('submit',event=>{
     gestaoN2Password?.select();
   }
 });
+
+
+/* Botões para copiar cada passo a passo da aba Reforço de sinal */
+document.querySelectorAll('#sec9 .activation-block').forEach(block=>{
+  const steps=block.querySelector('.activation-steps');
+  const label=block.querySelector('.activation-label');
+  if(!steps || !label) return;
+
+  const button=document.createElement('button');
+  button.type='button';
+  button.className='activation-copy';
+  button.textContent='Copiar';
+  button.setAttribute('aria-label','Copiar este passo a passo');
+  label.appendChild(button);
+
+  button.addEventListener('click',async()=>{
+    const text=[...steps.querySelectorAll('li')]
+      .map((item,index)=>`${index+1}. ${item.innerText.trim().replace(/\\s+/g,' ')}`)
+      .join('\\n');
+    try{
+      if(navigator.clipboard && window.isSecureContext){
+        await navigator.clipboard.writeText(text);
+      }else{
+        const area=document.createElement('textarea');
+        area.value=text;
+        area.style.position='fixed';
+        area.style.opacity='0';
+        document.body.appendChild(area);
+        area.select();
+        const copied=document.execCommand('copy');
+        area.remove();
+        if(!copied) throw new Error('Falha ao copiar');
+      }
+      button.textContent='✓ Copiado!';
+      button.classList.add('copied');
+      button.setAttribute('aria-live','polite');
+      setTimeout(()=>{button.textContent='Copiar';button.classList.remove('copied');},1800);
+    }catch(error){
+      button.textContent='Não foi possível copiar';
+      setTimeout(()=>{button.textContent='Copiar';},2200);
+    }
+  });
+});
