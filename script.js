@@ -130,14 +130,7 @@ document.querySelectorAll('#sec9 .activation-block').forEach(block=>{
       const content=item.innerText.trim().replace(/\s+/g,' ');
       return `${String(index+1).padStart(2,'0')}. ${content}`;
     });
-    const text=[
-      'NOVA PARABÓLICA SKY | 43W',
-      cardTitle.toUpperCase(),
-      stepTitle.toUpperCase(),
-      subtitle,
-      '',
-      items.join('\n\n')
-    ].join('\n');
+    const text=items.join('\n\n');
     try{
       if(navigator.clipboard && window.isSecureContext){
         await navigator.clipboard.writeText(text);
@@ -179,7 +172,7 @@ document.querySelectorAll('#sec8 .activation-block').forEach(block=>{
     const heading=label.querySelector('strong')?.innerText.trim() || 'Passo a passo';
     const subtitle=label.querySelector('small')?.innerText.trim() || '';
     const items=[...steps.querySelectorAll('li')].map((item,index)=>String(index+1).padStart(2,'0')+'. '+item.innerText.trim().replace(/\s+/g,' '));
-    const text=['NOVA PARABÓLICA SKY | 43W',title.toUpperCase(),heading.toUpperCase(),subtitle,'',items.join('\n\n')].join('\n');
+    const text=items.join('\n\n');
     try{
       await navigator.clipboard.writeText(text);
       button.textContent='✓ Copiado!';
@@ -203,7 +196,7 @@ if(rechargePanel && rechargeHeader && rechargeBody){
     const raw=[...rechargeBody.querySelectorAll('p')].map(p=>p.innerText.trim()).filter(Boolean).join(' ');
     const items=raw.split('→').map(step=>step.trim()).filter(Boolean);
     const formatted=items.map((step,index)=>String(index+1).padStart(2,'0')+'. '+step.replace(/\s+/g,' '));
-    const text=['NOVA PARABÓLICA SKY | 43W','COMO REALIZAR RECARGA NO CHAT','PASSO A PASSO','',formatted.join('\n\n')].join('\n');
+    const text=formatted.join('\n\n');
     try{
       await navigator.clipboard.writeText(text);
       button.textContent='✓ Copiado!';
