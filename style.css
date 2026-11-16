@@ -453,3 +453,16 @@ body{
   #sec13 .activation-steps li::before{left:11px;top:12px;width:30px;height:30px}
   #sec13 .activation-copy{padding:7px 11px}
 }
+
+
+/* B1 — uma etapa por linha, com separadores discretos */
+#sec13 .activation-card:first-of-type .activation-block{padding:0 22px 22px;background:#fff}
+#sec13 .activation-steps{display:flex;flex-direction:column;gap:0;margin:0;padding:0;list-style:none;counter-reset:b1-line}
+#sec13 .activation-steps li{counter-increment:b1-line;position:relative;display:flex;align-items:flex-start;gap:14px;width:100%;min-height:0;box-sizing:border-box;padding:17px 8px;border:0;border-bottom:1px solid #eee3e5;border-radius:0;background:#fff;box-shadow:none;color:#40343a;line-height:1.6;transform:none}
+#sec13 .activation-steps li:last-child{border-bottom:0}
+#sec13 .activation-steps li::before{content:counter(b1-line,decimal-leading-zero);position:static;flex:0 0 34px;display:grid;place-items:center;width:34px;height:34px;margin-top:1px;border-radius:9px;background:#fff0f3;border:1px solid #f0cbd2;color:#a3122a;font-size:12px;font-weight:900}
+#sec13 .activation-steps li::marker{content:""}
+#sec13 .activation-steps li:hover{border-color:#eee3e5;background:#fffafb;box-shadow:none;transform:none}
+#sec13 .activation-steps li strong{color:#8f1025}
+#sec13 .activation-card:first-of-type .activation-card-head{margin-bottom:0}
+@media(max-width:600px){#sec13 .activation-card:first-of-type .activation-block{padding:0 13px 12px}#sec13 .activation-steps li{gap:10px;padding:14px 3px;font-size:14px}#sec13 .activation-steps li::before{flex-basis:30px;width:30px;height:30px}}
