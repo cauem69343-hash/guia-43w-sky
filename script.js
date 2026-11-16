@@ -188,3 +188,27 @@ document.querySelectorAll('#sec8 .activation-block').forEach(block=>{
     }catch(error){button.textContent='Não foi possível copiar';}
   });
 });
+
+/* Copiar procedimento de recarga pelo CHAT */
+const rechargePanel=document.querySelector('#sec10');
+const rechargeHeader=rechargePanel?.querySelector('.panel-head');
+const rechargeBody=rechargePanel?.querySelector('.panel-body');
+if(rechargePanel && rechargeHeader && rechargeBody){
+  const button=document.createElement('button');
+  button.type='button';
+  button.className='activation-copy';
+  button.textContent='Copiar';
+  rechargeHeader.appendChild(button);
+  button.addEventListener('click',async()=>{
+    const raw=[...rechargeBody.querySelectorAll('p')].map(p=>p.innerText.trim()).filter(Boolean).join(' ');
+    const items=raw.split('→').map(step=>step.trim()).filter(Boolean);
+    const formatted=items.map((step,index)=>String(index+1).padStart(2,'0')+'. '+step.replace(/\s+/g,' '));
+    const text=['NOVA PARABÓLICA SKY | 43W','COMO REALIZAR RECARGA NO CHAT','PASSO A PASSO','',formatted.join('\n\n')].join('\n');
+    try{
+      await navigator.clipboard.writeText(text);
+      button.textContent='✓ Copiado!';
+      button.classList.add('copied');
+      setTimeout(()=>{button.textContent='Copiar';button.classList.remove('copied');},1800);
+    }catch(error){button.textContent='Não foi possível copiar';}
+  });
+}
