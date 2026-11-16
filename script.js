@@ -123,9 +123,24 @@ document.querySelectorAll('#sec9 .activation-block').forEach(block=>{
   label.appendChild(button);
 
   button.addEventListener('click',async()=>{
-    const text=[...steps.querySelectorAll('li')]
-      .map((item,index)=>`${index+1}. ${item.innerText.trim().replace(/\\s+/g,' ')}`)
-      .join('\\n');
+    const card=block.closest('.activation-card');
+    const cardTitle=card?.querySelector('.activation-card-head h3')?.innerText.trim() || 'Reforço de sinal';
+    const stepTitle=label.querySelector('strong')?.innerText.trim() || 'Passo a passo';
+    const subtitle=label.querySelector('small')?.innerText.trim() || '';
+    const items=[...steps.querySelectorAll('li')].map((item,index)=>{
+      const content=item.innerText.trim().replace(/\\s+/g,' ');
+      return `${String(index+1).padStart(2,'0')}  ${content}`;
+    });
+    const text=[
+      'NOVA PARABÓLICA SKY | 43W',
+      cardTitle.toUpperCase(),
+      stepTitle.toUpperCase(),
+      subtitle,
+      '',
+      items.join('\\n\\n'),
+      '',
+      '— Guia 43W | Procedimento de suporte'
+    ].filter((line,index)=>line!=='' || (index>0 && index<items.length+4)).join('\\n');
     try{
       if(navigator.clipboard && window.isSecureContext){
         await navigator.clipboard.writeText(text);
