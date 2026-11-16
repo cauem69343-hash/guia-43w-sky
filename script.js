@@ -136,9 +136,7 @@ document.querySelectorAll('#sec9 .activation-block').forEach(block=>{
       stepTitle.toUpperCase(),
       subtitle,
       '',
-      items.join('\n\n'),
-      '',
-      '— Guia 43W | Procedimento de suporte'
+      items.join('\n\n')
     ].join('\n');
     try{
       if(navigator.clipboard && window.isSecureContext){
