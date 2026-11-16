@@ -1,3 +1,33 @@
+/* Alternância entre tema claro e escuro */
+const themeToggle=document.getElementById('themeToggle');
+const themeToggleIcon=document.getElementById('themeToggleIcon');
+const themeToggleLabel=document.getElementById('themeToggleLabel');
+const themeColorMeta=document.querySelector('meta[name="theme-color"]');
+
+function applyGuideTheme(theme){
+  const dark=theme==='dark';
+  document.documentElement.dataset.theme=dark?'dark':'light';
+  if(themeToggle){
+    themeToggle.setAttribute('aria-pressed',String(dark));
+    themeToggle.setAttribute('aria-label',dark?'Ativar tema claro':'Ativar tema escuro');
+  }
+  if(themeToggleIcon) themeToggleIcon.textContent=dark?'☀️':'🌙';
+  if(themeToggleLabel) themeToggleLabel.textContent=dark?'Modo claro':'Modo escuro';
+  if(themeColorMeta) themeColorMeta.setAttribute('content',dark?'#11151d':'#8f1025');
+}
+
+let initialGuideTheme='light';
+try{
+  initialGuideTheme=localStorage.getItem('guia43w_theme')==='dark'?'dark':'light';
+}catch(error){}
+applyGuideTheme(initialGuideTheme);
+
+themeToggle?.addEventListener('click',()=>{
+  const nextTheme=document.documentElement.dataset.theme==='dark'?'light':'dark';
+  applyGuideTheme(nextTheme);
+  try{localStorage.setItem('guia43w_theme',nextTheme)}catch(error){}
+});
+
 const tabs=[...document.querySelectorAll('.tab')];
 const panels=[...document.querySelectorAll('.panel')];
 const search=document.getElementById('search');
