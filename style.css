@@ -641,3 +641,139 @@ body{background:linear-gradient(135deg,#FDFDFD 0%,#FFEFE2 100%);color:var(--text
 .step{background:#fff6ef;border-left-color:#FA5708}
 .regional-button,.software-download,.sc-copy{background:#FA5708}
 @media(max-width:600px){.brand-logo{width:112px;height:50px}.brand{gap:10px}}
+
+
+/* Ajuste final: paleta clara oficial Nova Parabólica */
+:root:not([data-theme="dark"]){
+  color-scheme:light;
+  --navy:#FA5708;
+  --blue:#FA5708;
+  --cyan:#ff9a5c;
+  --sky:#FA5708;
+  --bg:#FFEFE2;
+  --card:#FDFDFD;
+  --text:#30251f;
+  --muted:#78685e;
+  --line:#f2d9c7;
+  --shadow:0 10px 28px rgba(111,63,34,.08);
+}
+html:not([data-theme="dark"]) body{
+  background:#FFEFE2!important;
+  color:#30251f!important;
+}
+html:not([data-theme="dark"]) .hero{
+  background:#FA5708!important;
+  color:#fff!important;
+}
+html:not([data-theme="dark"]) .hero:after{background:rgba(255,255,255,.10)!important}
+html:not([data-theme="dark"]) .brand-logo{background:#FDFDFD!important}
+html:not([data-theme="dark"]) .eyebrow,
+html:not([data-theme="dark"]) .hero p{color:#fff!important}
+html:not([data-theme="dark"]) .sidebar{
+  background:#FFEFE2!important;
+  border-color:#f2d9c7!important;
+}
+html:not([data-theme="dark"]) .search-wrap input,
+html:not([data-theme="dark"]) .mobile-tabs select{
+  background:#FDFDFD!important;
+  border-color:#f0d3bd!important;
+  color:#30251f!important;
+}
+html:not([data-theme="dark"]) .tab{color:#59483e!important}
+html:not([data-theme="dark"]) .tab:hover,
+html:not([data-theme="dark"]) .tab.active{
+  background:#FDFDFD!important;
+  color:#FA5708!important;
+}
+html:not([data-theme="dark"]) .tab.active{
+  box-shadow:inset 3px 0 #FA5708!important;
+}
+html:not([data-theme="dark"]) .main{background:#FFEFE2!important}
+html:not([data-theme="dark"]) .quick div,
+html:not([data-theme="dark"]) .panel,
+html:not([data-theme="dark"]) .activation-card,
+html:not([data-theme="dark"]) .activation-block,
+html:not([data-theme="dark"]) .regional-result,
+html:not([data-theme="dark"]) .receiver-card,
+html:not([data-theme="dark"]) .software-card{
+  background:#FDFDFD!important;
+  border-color:#f0d9c8!important;
+}
+html:not([data-theme="dark"]) .panel-head,
+html:not([data-theme="dark"]) .activation-card-head,
+html:not([data-theme="dark"]) .receiver-brand,
+html:not([data-theme="dark"]) .software-card-top{
+  background:#FFEFE2!important;
+  border-color:#f0d9c8!important;
+}
+html:not([data-theme="dark"]) .panel-head h2,
+html:not([data-theme="dark"]) .panel-body h3,
+html:not([data-theme="dark"]) .regional-result-head h3,
+html:not([data-theme="dark"]) .activation-label strong,
+html:not([data-theme="dark"]) .activation-card-head h3,
+html:not([data-theme="dark"]) .software-model,
+html:not([data-theme="dark"]) .software-subhead{
+  color:#FA5708!important;
+}
+html:not([data-theme="dark"]) .panel-body p,
+html:not([data-theme="dark"]) .panel-body li{color:#40342d!important}
+html:not([data-theme="dark"]) .panel-icon,
+html:not([data-theme="dark"]) .activation-icon{
+  background:#FDFDFD!important;
+  border-color:#f0d9c8!important;
+}
+html:not([data-theme="dark"]) .step,
+html:not([data-theme="dark"]) .activation-intro,
+html:not([data-theme="dark"]) .regional-intro,
+html:not([data-theme="dark"]) .regional-form{
+  background:#FFEFE2!important;
+  border-color:#f0d9c8!important;
+}
+html:not([data-theme="dark"]) .step{border-left:4px solid #FA5708!important}
+html:not([data-theme="dark"]) .regional-field label{color:#FA5708!important}
+html:not([data-theme="dark"]) .regional-field select,
+html:not([data-theme="dark"]) .regional-field input,
+html:not([data-theme="dark"]) input,
+html:not([data-theme="dark"]) select,
+html:not([data-theme="dark"]) textarea{
+  background:#FDFDFD!important;
+  border-color:#ead3c3!important;
+  color:#30251f!important;
+}
+html:not([data-theme="dark"]) .regional-button,
+html:not([data-theme="dark"]) .software-download,
+html:not([data-theme="dark"]) .sc-copy,
+html:not([data-theme="dark"]) .gestao-n2-password-row button{
+  background:#FA5708!important;
+  border-color:#FA5708!important;
+  color:#fff!important;
+}
+html:not([data-theme="dark"]) .regional-table th,
+html:not([data-theme="dark"]) .tp-table th,
+html:not([data-theme="dark"]) .sc-table th,
+html:not([data-theme="dark"]) table th{
+  background:#FFEFE2!important;
+  color:#FA5708!important;
+  border-color:#f0d9c8!important;
+}
+html:not([data-theme="dark"]) .regional-table td,
+html:not([data-theme="dark"]) .tp-table td,
+html:not([data-theme="dark"]) .sc-table td,
+html:not([data-theme="dark"]) table td{
+  background:#FDFDFD!important;
+  color:#40342d!important;
+  border-color:#f0e1d5!important;
+}
+html:not([data-theme="dark"]) .regional-table tbody tr:nth-child(even),
+html:not([data-theme="dark"]) .tp-table tbody tr:nth-child(even){background:#fff8f2!important}
+html:not([data-theme="dark"]) .empty,
+html:not([data-theme="dark"]) .regional-empty,
+html:not([data-theme="dark"]) .software-note,
+html:not([data-theme="dark"]) .software-unavailable,
+html:not([data-theme="dark"]) .sc-note{
+  background:#FFEFE2!important;
+  border-color:#f0d9c8!important;
+  color:#59483e!important;
+}
+html:not([data-theme="dark"]) .panel-body a,
+html:not([data-theme="dark"]) .quick strong{color:#FA5708!important}
