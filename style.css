@@ -777,3 +777,39 @@ html:not([data-theme="dark"]) .sc-note{
 }
 html:not([data-theme="dark"]) .panel-body a,
 html:not([data-theme="dark"]) .quick strong{color:#FA5708!important}
+
+/* Aba Lista de canais NP */
+.np-channels-body{display:flex;flex-direction:column;gap:16px}
+.np-channels-intro{display:flex;flex-direction:column;gap:4px;padding:15px 17px;background:#FFEFE2;border:1px solid #f0d9c8;border-radius:12px}
+.np-channels-intro strong{color:#FA5708;font-size:15px}
+.np-channels-intro span,.np-channel-source{font-size:13px;color:var(--muted)}
+.np-channels-controls{display:grid;grid-template-columns:minmax(220px,.8fr) minmax(260px,1.2fr);gap:14px}
+.np-channel-field{display:flex;flex-direction:column;gap:7px;font-size:13px;font-weight:800;color:#59483e}
+.np-channel-field select,.np-channel-field input{width:100%;min-height:44px;padding:10px 13px;border:1px solid #ead3c3;border-radius:10px;background:#FDFDFD;color:#30251f;outline:none}
+.np-channel-field select:focus,.np-channel-field input:focus{border-color:#FA5708;box-shadow:0 0 0 3px rgba(250,87,8,.12)}
+.np-channel-summary{display:flex;align-items:center;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:13px}
+.np-channel-summary strong{font-size:20px;color:#FA5708}
+.np-channel-grade-label{margin-left:auto;padding:6px 10px;border-radius:999px;background:#FFEFE2;color:#b84308;font-weight:800}
+.np-channel-table-wrap{max-height:650px;overflow:auto;border:1px solid #f0d9c8;border-radius:12px;background:#FDFDFD}
+.np-channel-table{width:100%;border-collapse:collapse;background:#FDFDFD;font-size:14px}
+.np-channel-table th{position:sticky;top:0;z-index:1;padding:13px 15px;text-align:left;background:#FFEFE2;color:#FA5708;border-bottom:1px solid #f0d9c8}
+.np-channel-table td{padding:11px 15px;border-bottom:1px solid #f3e7de;color:#40342d}
+.np-channel-table tbody tr:nth-child(even){background:#fffaf6}
+.np-channel-number{width:100px;font-weight:900;color:#FA5708!important;font-variant-numeric:tabular-nums}
+.np-channel-name{font-weight:650}
+.np-channel-type{display:inline-block;min-width:48px;text-align:center;padding:4px 8px;border-radius:999px;background:#FFEFE2;color:#a94712;font-size:11px;font-weight:800}
+.np-channel-empty{padding:18px;text-align:center;background:#FFEFE2;border-radius:10px;color:#80513a}
+.np-channel-source{margin:0}
+@media(max-width:650px){.np-channels-controls{grid-template-columns:1fr}.np-channel-grade-label{margin-left:0}.np-channel-table th,.np-channel-table td{padding:10px 11px}.np-channel-number{width:70px}}
+html[data-theme="dark"] .np-channels-intro,
+html[data-theme="dark"] .np-channel-grade-label,
+html[data-theme="dark"] .np-channel-type,
+html[data-theme="dark"] .np-channel-empty{background:#30242b!important;border-color:#654c40!important;color:#ffbc9a!important}
+html[data-theme="dark"] .np-channel-field{color:#dce3ec!important}
+html[data-theme="dark"] .np-channel-field select,
+html[data-theme="dark"] .np-channel-field input,
+html[data-theme="dark"] .np-channel-table-wrap,
+html[data-theme="dark"] .np-channel-table{background:#1b222d!important;border-color:#343e4d!important;color:#e9edf4!important}
+html[data-theme="dark"] .np-channel-table th{background:#30232b!important;color:#ffbc9a!important;border-color:#3b4655!important}
+html[data-theme="dark"] .np-channel-table td{background:#1b222d!important;color:#dce3ec!important;border-color:#3b4655!important}
+html[data-theme="dark"] .np-channel-number{color:#ffbc9a!important}
