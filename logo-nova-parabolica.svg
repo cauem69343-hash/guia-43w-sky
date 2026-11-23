@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="288" height="128" viewBox="0 0 144 64">
+<rect width="144" height="64" fill="none"/>
+<g fill="#FA5708" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="20" letter-spacing="-0.8">
+<text x="1" y="23">NOVA</text><text x="1" y="48">PARABÓLICA</text></g>
+<path d="M78 31 Q88 23 100 18 Q94 26 86 31" fill="#FA5708"/>
+<path d="M79 48 Q88 40 96 32" stroke="#FA5708" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+</svg>
