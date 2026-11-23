@@ -13,7 +13,7 @@ function applyGuideTheme(theme){
   }
   if(themeToggleIcon) themeToggleIcon.textContent=dark?'☀️':'🌙';
   if(themeToggleLabel) themeToggleLabel.textContent=dark?'Modo claro':'Modo escuro';
-  if(themeColorMeta) themeColorMeta.setAttribute('content',dark?'#11151d':'#8f1025');
+  if(themeColorMeta) themeColorMeta.setAttribute('content',dark?'#17120f':'#FA5708');
 }
 
 let initialGuideTheme='light';
