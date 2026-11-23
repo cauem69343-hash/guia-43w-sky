@@ -42,6 +42,7 @@
 <button class="tab" data-target="sec4"><span>🛠️</span><span>Recovery Vivensis</span></button>
 <button class="tab" data-target="sec12"><span>📡</span><span>Como adicionar a TP manual</span></button>
 <button class="tab" data-target="sec11"><span>🌎</span><span>Regional X Regionalizado</span></button>
+<button class="tab" data-target="sec16"><span>📺</span><span>Lista de canais NP</span></button>
 <button class="tab" data-target="sec5"><span>💾</span><span>Cenários prováveis</span></button>
 <button class="tab" data-target="sec7"><span>📧</span><span>Enviando para abertura de chamado N2</span></button>
 <button class="tab" data-target="sec8"><span>📞</span><span>Ativação de receptor</span></button>
@@ -57,7 +58,7 @@
         <select id="selectTab" aria-label="Selecionar seção"></select>
       </div>
       <div class="quick">
-        <div><strong>15</strong><span>seções</span></div>
+        <div><strong>16</strong><span>seções</span></div>
         <div><strong>43W</strong><span>Nova Parabólica</span></div>
         <div><strong>9</strong><span>modelos listados</span></div>
       </div>
@@ -374,6 +375,29 @@
     </div>
   </div>
 </section>
+<section class="panel" id="sec16">
+  <div class="panel-head">
+    <div class="panel-icon">📺</div>
+    <div><h2>Lista de canais NP</h2><p>Consulte os canais e suas numerações em cada grade da Nova Parabólica.</p></div>
+  </div>
+  <div class="panel-body np-channels-body">
+    <div class="np-channels-intro"><strong>Grades disponíveis</strong><span>Selecione uma grade para visualizar os canais correspondentes.</span></div>
+    <div class="np-channels-controls">
+      <label class="np-channel-field"><span>Grade de canais</span><select id="npGradeSelect" aria-label="Selecionar grade de canais"></select></label>
+      <label class="np-channel-field np-channel-search"><span>Pesquisar canal ou número</span><input id="npChannelSearch" type="search" placeholder="Ex.: Globo, SBT, 409..."></label>
+    </div>
+    <div class="np-channel-summary" id="npChannelSummary" aria-live="polite"></div>
+    <div class="np-channel-table-wrap">
+      <table class="np-channel-table">
+        <thead><tr><th>Nº</th><th>Canal</th><th>Tipo</th></tr></thead>
+        <tbody id="npChannelRows"></tbody>
+      </table>
+    </div>
+    <p class="np-channel-empty" id="npChannelEmpty" hidden>Nenhum canal encontrado nessa grade.</p>
+    <p class="np-channel-source">Fonte: arquivo LISTA DE CANAIS NP.xlsx enviado para organização das grades.</p>
+  </div>
+</section>
+
 <section class="panel" id="sec5"><div class="panel-head"><div class="panel-icon">💾</div><div><h2>Cenários prováveis</h2><p>Procedimento e informações do guia</p></div></div><div class="panel-body"><p>Troca teste da LNB:</p>
 <p>Quando já foi realizado todas as validações: validação de</p>
 <p>versão do software, taxas de sinais, já foi enviado comando e o receptor está</p>
@@ -627,6 +651,9 @@
     </main>
   </div>
 </div>
-<script src="regional-data.js"></script>\n<script src="regional.js"></script>\n<script src="script.js"></script>
+<script src="regional-data.js"></script>\n<script src="regional.js"></script>
+<script src="channel-data.js"></script>
+<script src="channel-list.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
